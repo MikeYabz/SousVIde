@@ -152,12 +152,12 @@
 <text x="6.223" y="93.091" size="1.778" layer="21">G</text>
 <text x="6.35" y="95.758" size="1.778" layer="21">N</text>
 <text x="6.477" y="98.552" size="1.778" layer="21">L</text>
-<text x="40.894" y="83.693" size="0.762" layer="21">GND  R1    5V</text>
-<text x="53.594" y="83.693" size="0.762" layer="21">GND  R4    5V</text>
-<text x="64.897" y="83.693" size="0.762" layer="21">GND  R6    5V</text>
-<text x="65.151" y="74.803" size="0.762" layer="21">GND  R5    5V</text>
-<text x="53.594" y="74.803" size="0.762" layer="21">GND  R3    5V</text>
-<text x="41.021" y="74.803" size="0.762" layer="21">GND  R2    5V</text>
+<text x="40.894" y="83.693" size="0.762" layer="21">GND  R1   5V</text>
+<text x="53.594" y="83.693" size="0.762" layer="21">GND  R4   5V</text>
+<text x="64.897" y="83.693" size="0.762" layer="21">GND  R6   5V</text>
+<text x="65.151" y="74.803" size="0.762" layer="21">GND  R5   5V</text>
+<text x="53.594" y="74.803" size="0.762" layer="21">GND  R3   5V</text>
+<text x="41.021" y="74.803" size="0.762" layer="21">GND  R2   5V</text>
 <text x="73.533" y="107.442" size="1.016" layer="21">SCL</text>
 <text x="73.533" y="110.109" size="1.016" layer="21">SDA</text>
 <text x="73.66" y="104.902" size="1.016" layer="21">5V</text>
@@ -2259,14 +2259,16 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <contactref element="STM32F070F6" pad="12"/>
 <wire x1="54.61" y1="93.36" x2="58.151" y2="93.36" width="0.3048" layer="1"/>
 <wire x1="58.151" y1="93.36" x2="58.42" y2="93.091" width="0.3048" layer="1"/>
-<via x="58.42" y="93.091" extent="1-16" drill="0.3048"/>
+<wire x1="58.42" y1="93.091" x2="66.929" y2="93.091" width="0.3048" layer="1"/>
+<wire x1="66.929" y1="93.091" x2="67.564" y2="92.456" width="0.3048" layer="1"/>
+<via x="67.564" y="92.456" extent="1-16" drill="0.8128"/>
 </signal>
 <signal name="EXTRA2">
 <contactref element="STM32F070F6" pad="13"/>
 <wire x1="54.61" y1="94.01" x2="54.64" y2="93.98" width="0.3048" layer="1"/>
-<wire x1="54.64" y1="93.98" x2="59.182" y2="93.98" width="0.3048" layer="1"/>
-<wire x1="59.182" y1="93.98" x2="60.071" y2="93.091" width="0.3048" layer="1"/>
-<via x="60.071" y="93.091" extent="1-16" drill="0.3048"/>
+<wire x1="66.929" y1="93.98" x2="67.564" y2="94.615" width="0.3048" layer="1"/>
+<via x="67.564" y="94.615" extent="1-16" drill="0.8128"/>
+<wire x1="54.64" y1="93.98" x2="66.929" y2="93.98" width="0.3048" layer="1"/>
 </signal>
 <signal name="TX">
 <contactref element="STM32F070F6" pad="17"/>

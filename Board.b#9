@@ -166,8 +166,8 @@
 <text x="6.477" y="73.279" size="1.016" layer="21" rot="R90">SousVide Control Board rev.1
 Designed By M.Yablonovitch
 May 16th 2018</text>
-<text x="63.246" y="102.87" size="0.889" layer="21">RX</text>
-<text x="63.246" y="101.219" size="0.889" layer="21">TX</text>
+<text x="63.119" y="103.759" size="0.889" layer="21">RX</text>
+<text x="63.119" y="101.6" size="0.889" layer="21">TX</text>
 <text x="39.497" y="92.456" size="1.016" layer="21">GND</text>
 <text x="39.37" y="89.154" size="1.016" layer="21">5v</text>
 <text x="39.624" y="94.996" size="1.016" layer="21">3v3</text>
@@ -2169,7 +2169,11 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <wire x1="68.58" y1="107.95" x2="67.31" y2="106.68" width="0.3048" layer="1"/>
 <wire x1="67.31" y1="106.68" x2="66.548" y2="106.68" width="0.3048" layer="1"/>
 <wire x1="64.77" y1="107.95" x2="71.12" y2="107.95" width="0.3048" layer="16"/>
-<wire x1="52.959" y1="96.139" x2="64.77" y2="107.95" width="0.3048" layer="16"/>
+<wire x1="52.959" y1="96.139" x2="54.483" y2="97.663" width="0.3048" layer="16"/>
+<wire x1="54.483" y1="97.663" x2="54.483" y2="98.806" width="0.3048" layer="16"/>
+<wire x1="54.483" y1="98.806" x2="62.484" y2="106.807" width="0.3048" layer="16"/>
+<wire x1="62.484" y1="106.807" x2="63.627" y2="106.807" width="0.3048" layer="16"/>
+<wire x1="63.627" y1="106.807" x2="64.77" y2="107.95" width="0.3048" layer="16"/>
 </signal>
 <signal name="TEMP-READ">
 <contactref element="R5" pad="1"/>
@@ -2186,9 +2190,10 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <wire x1="54.61" y1="97.26" x2="55.731" y2="97.26" width="0.3048" layer="1"/>
 <wire x1="55.731" y1="97.26" x2="56.388" y2="97.917" width="0.3048" layer="1"/>
 <wire x1="56.388" y1="97.917" x2="56.388" y2="98.552" width="0.3048" layer="1"/>
-<wire x1="56.388" y1="98.552" x2="61.087" y2="103.251" width="0.3048" layer="1"/>
-<wire x1="61.087" y1="103.251" x2="61.976" y2="103.251" width="0.3048" layer="1"/>
-<via x="61.976" y="103.251" extent="1-16" drill="0.508"/>
+<wire x1="56.388" y1="98.552" x2="60.833" y2="102.997" width="0.3048" layer="1"/>
+<wire x1="60.833" y1="102.997" x2="61.087" y2="103.251" width="0.3048" layer="1"/>
+<wire x1="61.087" y1="103.251" x2="61.976" y2="104.14" width="0.3048" layer="1"/>
+<via x="61.976" y="104.14" extent="1-16" drill="0.8128"/>
 </signal>
 <signal name="RELAY5">
 <contactref element="STM32F070F6" pad="10"/>
@@ -2270,9 +2275,9 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <signal name="TX">
 <contactref element="STM32F070F6" pad="17"/>
 <wire x1="54.61" y1="96.61" x2="56.097" y2="96.61" width="0.3048" layer="1"/>
-<wire x1="61.087" y1="101.6" x2="61.976" y2="101.6" width="0.3048" layer="1"/>
-<wire x1="56.097" y1="96.61" x2="61.087" y2="101.6" width="0.3048" layer="1"/>
-<via x="61.976" y="101.6" extent="1-16" drill="0.508"/>
+<wire x1="61.341" y1="101.854" x2="61.976" y2="101.854" width="0.3048" layer="1"/>
+<via x="61.976" y="101.854" extent="1-16" drill="0.8128"/>
+<wire x1="56.097" y1="96.61" x2="61.341" y2="101.854" width="0.3048" layer="1"/>
 </signal>
 <signal name="PGND">
 <contactref element="MAINS-IN" pad="1"/>

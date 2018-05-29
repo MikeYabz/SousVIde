@@ -1332,22 +1332,6 @@ Operational amplifiers,  comparators, voltage regulators, ADCs, DACs, etc.&lt;p&
 </package3d>
 </packages3d>
 </library>
-<library name="Library">
-<packages>
-<package name="AC/DC-CONVERTER">
-<wire x1="-12.745" y1="12.7" x2="12.745" y2="12.7" width="0.127" layer="21"/>
-<wire x1="12.745" y1="12.7" x2="12.745" y2="-12.7" width="0.127" layer="21"/>
-<wire x1="12.745" y1="-12.7" x2="-12.745" y2="-12.7" width="0.127" layer="21"/>
-<wire x1="-12.745" y1="-12.7" x2="-12.745" y2="12.7" width="0.127" layer="21"/>
-<pad name="P$1" x="-10" y="-5.67" drill="0.6" shape="square"/>
-<pad name="P$2" x="-10" y="-9.57" drill="0.6" shape="square"/>
-<pad name="P$3" x="10.76" y="10.775" drill="0.6" shape="square"/>
-<pad name="P$4" x="10.76" y="-0.655" drill="0.6" shape="square"/>
-<pad name="P$5" x="10.76" y="-10.815" drill="0.6" shape="square"/>
-<text x="-11.43" y="13.97" size="1.27" layer="25">&gt;NAME</text>
-</package>
-</packages>
-</library>
 <library name="special" urn="urn:adsk.eagle:library:367">
 <description>&lt;b&gt;Special Devices&lt;/b&gt;&lt;p&gt;
 7-segment displays, switches, heatsinks, crystals, transformers, etc.&lt;p&gt;
@@ -1474,6 +1458,18 @@ MAX3223-MAX3243.pdf</description>
 <rectangle x1="-1.7266" y1="2.2828" x2="-1.5234" y2="3.121" layer="51"/>
 <rectangle x1="-2.3766" y1="2.2828" x2="-2.1734" y2="3.121" layer="51"/>
 <rectangle x1="-3.0266" y1="2.2828" x2="-2.8234" y2="3.121" layer="51"/>
+</package>
+<package name="AC/DC-CONVERTER">
+<wire x1="-12.745" y1="12.7" x2="12.745" y2="12.7" width="0.127" layer="21"/>
+<wire x1="12.745" y1="12.7" x2="12.745" y2="-12.7" width="0.127" layer="21"/>
+<wire x1="12.745" y1="-12.7" x2="-12.745" y2="-12.7" width="0.127" layer="21"/>
+<wire x1="-12.745" y1="-12.7" x2="-12.745" y2="12.7" width="0.127" layer="21"/>
+<pad name="P$1" x="-10" y="-5.67" drill="1.016" shape="square"/>
+<pad name="P$2" x="-10" y="-9.57" drill="1.016" shape="square"/>
+<pad name="P$3" x="10.76" y="10.775" drill="1.016" shape="square"/>
+<pad name="P$4" x="10.76" y="-0.655" drill="1.016" shape="square"/>
+<pad name="P$5" x="10.76" y="-10.815" drill="1.016" shape="square"/>
+<text x="-11.43" y="13.97" size="1.27" layer="25">&gt;NAME</text>
 </package>
 </packages>
 </library>
@@ -1878,7 +1874,7 @@ Note, that not all DRC settings must be set by the manufacturer. Several can be 
 <attribute name="SPICEPREFIX" value="R" x="45.466" y="98.845" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="STM32F070F6" library="SousVide Library" package="TSSOP20" value="" x="51.6922" y="95.635" rot="R270"/>
-<element name="RAC05-05SK" library="Library" package="AC/DC-CONVERTER" value="AC/DC-CONVERTER" x="21.59" y="88.9"/>
+<element name="RAC05-05SK" library="SousVide Library" package="AC/DC-CONVERTER" value="AC/DC-CONVERTER" x="21.59" y="88.9"/>
 <element name="F1" library="special" library_urn="urn:adsk.eagle:library:367" package="FUSE" package3d_urn="urn:adsk.eagle:package:26650/1" value="" x="20.32" y="108.8644" smashed="yes">
 <attribute name="NAME" x="15.24" y="112.1664" size="1.778" layer="25" ratio="10"/>
 <attribute name="VALUE" x="15.24" y="103.7844" size="1.778" layer="27" ratio="10"/>

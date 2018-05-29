@@ -152,19 +152,19 @@
 <text x="6.223" y="93.091" size="1.778" layer="21">G</text>
 <text x="6.35" y="95.758" size="1.778" layer="21">N</text>
 <text x="6.477" y="98.552" size="1.778" layer="21">L</text>
-<text x="40.894" y="83.693" size="0.762" layer="21">GND  R1   5V</text>
-<text x="53.594" y="83.693" size="0.762" layer="21">GND  R4   5V</text>
-<text x="64.897" y="83.693" size="0.762" layer="21">GND  R6   5V</text>
-<text x="65.151" y="74.803" size="0.762" layer="21">GND  R5   5V</text>
-<text x="53.594" y="74.803" size="0.762" layer="21">GND  R3   5V</text>
-<text x="41.021" y="74.803" size="0.762" layer="21">GND  R2   5V</text>
+<text x="40.894" y="83.693" size="0.762" layer="21">GND  R1  5V</text>
+<text x="53.594" y="83.693" size="0.762" layer="21">GND  R4  5V</text>
+<text x="64.897" y="83.693" size="0.762" layer="21">GND  R6  5V</text>
+<text x="65.151" y="74.803" size="0.762" layer="21">GND  R5  5V</text>
+<text x="53.594" y="74.803" size="0.762" layer="21">GND  R3  5V</text>
+<text x="41.021" y="74.803" size="0.762" layer="21">GND  R2  5V</text>
 <text x="73.533" y="107.442" size="1.016" layer="21">SCL</text>
 <text x="73.533" y="110.109" size="1.016" layer="21">SDA</text>
 <text x="73.66" y="104.902" size="1.016" layer="21">5V</text>
 <text x="73.66" y="102.235" size="1.016" layer="21">GND</text>
 <circle x="62.738" y="112.268" radius="0.283978125" width="0.8128" layer="21"/>
-<text x="6.477" y="73.279" size="1.016" layer="21" rot="R90">SousVide Control Board rev.1
-Designed By M.Yablonovitch
+<text x="5.588" y="73.533" size="1.016" layer="21" rot="R90">SousVide rev.1
+Design By: M.Yablonovitch
 May 16th 2018</text>
 <text x="63.119" y="103.759" size="0.889" layer="21">RX</text>
 <text x="63.119" y="101.6" size="0.889" layer="21">TX</text>
