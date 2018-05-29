@@ -8184,11 +8184,11 @@ MAX3223-MAX3243.pdf</description>
 <wire x1="12.745" y1="12.7" x2="12.745" y2="-12.7" width="0.127" layer="21"/>
 <wire x1="12.745" y1="-12.7" x2="-12.745" y2="-12.7" width="0.127" layer="21"/>
 <wire x1="-12.745" y1="-12.7" x2="-12.745" y2="12.7" width="0.127" layer="21"/>
-<pad name="P$1" x="-10" y="-5.67" drill="1.016" shape="square"/>
-<pad name="P$2" x="-10" y="-9.57" drill="1.016" shape="square"/>
-<pad name="P$3" x="10.76" y="10.775" drill="1.016" shape="square"/>
-<pad name="P$4" x="10.76" y="-0.655" drill="1.016" shape="square"/>
-<pad name="P$5" x="10.76" y="-10.815" drill="1.016" shape="square"/>
+<pad name="L" x="-10" y="5.67" drill="1.016" shape="square"/>
+<pad name="N" x="-10" y="9.57" drill="1.016" shape="square"/>
+<pad name="NC" x="10.76" y="-10.775" drill="1.016" shape="square"/>
+<pad name="GND" x="10.76" y="0.655" drill="1.016" shape="square"/>
+<pad name="+5V" x="10.76" y="10.815" drill="1.016" shape="square"/>
 <text x="-11.43" y="13.97" size="1.27" layer="25">&gt;NAME</text>
 </package>
 </packages>
@@ -8274,10 +8274,10 @@ MAX3223-MAX3243.pdf</description>
 <devices>
 <device name="" package="AC/DC-CONVERTER">
 <connects>
-<connect gate="G$1" pin="AC(L)" pad="P$1"/>
-<connect gate="G$1" pin="AC(N)" pad="P$2"/>
-<connect gate="G$1" pin="VOUT+" pad="P$4"/>
-<connect gate="G$1" pin="VOUT-" pad="P$5"/>
+<connect gate="G$1" pin="AC(L)" pad="L"/>
+<connect gate="G$1" pin="AC(N)" pad="N"/>
+<connect gate="G$1" pin="VOUT+" pad="+5V"/>
+<connect gate="G$1" pin="VOUT-" pad="GND"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -8856,7 +8856,6 @@ W = angled&lt;p&gt;
 </classes>
 <parts>
 <part name="STM32F070F6" library="SousVide Library" deviceset="STM32F07" device="" value=""/>
-<part name="RAC05-05SK" library="SousVide Library" deviceset="AC/DC-CONVERTER" device=""/>
 <part name="+3V1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="SUPPLY1" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="PE" device=""/>
 <part name="LM117" library="linear" library_urn="urn:adsk.eagle:library:262" deviceset="*317" device="EMP" package3d_urn="urn:adsk.eagle:package:16418/2"/>
@@ -8882,11 +8881,9 @@ W = angled&lt;p&gt;
 <part name="SUPPLY7" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="PE" device=""/>
 <part name="R5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/2" value="1k5"/>
 <part name="THERMISTOR" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X2" device="" package3d_urn="urn:adsk.eagle:package:22435/2"/>
-<part name="MAINS-IN" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X3" device="" package3d_urn="urn:adsk.eagle:package:22458/2"/>
-<part name="SWITCH" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X2" device="" package3d_urn="urn:adsk.eagle:package:22435/2"/>
-<part name="R9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="250"/>
-<part name="R11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="250"/>
-<part name="R12" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="250"/>
+<part name="R9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/2" value="250"/>
+<part name="R11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/2" value="250"/>
+<part name="R12" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/2" value="250"/>
 <part name="SV2" library="con-lstb" library_urn="urn:adsk.eagle:library:162" deviceset="MA06-1" device="" package3d_urn="urn:adsk.eagle:package:8340/1"/>
 <part name="PE6" library="YabzLib" deviceset="GND" device=""/>
 <part name="U$4" library="YabzLib" deviceset="3V3" device=""/>
@@ -8896,6 +8893,7 @@ W = angled&lt;p&gt;
 <part name="JP6" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X3" device="" package3d_urn="urn:adsk.eagle:package:22458/2"/>
 <part name="JP7" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X3" device="" package3d_urn="urn:adsk.eagle:package:22458/2"/>
 <part name="JP8" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X3" device="" package3d_urn="urn:adsk.eagle:package:22458/2"/>
+<part name="RAC05-K" library="SousVide Library" deviceset="AC/DC-CONVERTER" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -8926,7 +8924,6 @@ W = angled&lt;p&gt;
 </plain>
 <instances>
 <instance part="STM32F070F6" gate="G$1" x="-30.48" y="81.28"/>
-<instance part="RAC05-05SK" gate="G$1" x="81.28" y="88.9"/>
 <instance part="+3V1" gate="G$1" x="137.16" y="99.06"/>
 <instance part="SUPPLY1" gate="PE" x="101.6" y="78.74" smashed="yes"/>
 <instance part="LM117" gate="A1" x="121.92" y="91.44" smashed="yes">
@@ -8943,9 +8940,9 @@ W = angled&lt;p&gt;
 <instance part="+3V2" gate="G$1" x="-71.12" y="93.98"/>
 <instance part="+3V3" gate="G$1" x="0" y="88.9"/>
 <instance part="SUPPLY4" gate="PE" x="0" y="76.2" smashed="yes"/>
-<instance part="F1" gate="G$1" x="50.8" y="93.98"/>
+<instance part="F1" gate="G$1" x="53.34" y="93.98"/>
 <instance part="SUPPLY5" gate="PE" x="-58.42" y="88.9" smashed="yes"/>
-<instance part="U$1" gate="G$1" x="35.56" y="68.58"/>
+<instance part="U$1" gate="G$1" x="43.18" y="68.58"/>
 <instance part="R3" gate="G$1" x="45.72" y="48.26" smashed="yes" rot="R270">
 <attribute name="NAME" x="47.2186" y="46.99" size="1.778" layer="95" rot="R270"/>
 <attribute name="VALUE" x="42.418" y="46.99" size="1.778" layer="96" rot="R270"/>
@@ -8966,8 +8963,6 @@ W = angled&lt;p&gt;
 <attribute name="VALUE" x="108.458" y="-36.83" size="1.778" layer="96" rot="R270"/>
 </instance>
 <instance part="THERMISTOR" gate="G$1" x="121.92" y="-25.4"/>
-<instance part="MAINS-IN" gate="A" x="27.94" y="76.2" rot="R180"/>
-<instance part="SWITCH" gate="G$1" x="27.94" y="88.9" rot="R180"/>
 <instance part="R9" gate="G$1" x="-38.1" y="38.1" rot="R180"/>
 <instance part="R11" gate="G$1" x="-38.1" y="22.86" rot="R180"/>
 <instance part="R12" gate="G$1" x="-38.1" y="15.24" rot="R180"/>
@@ -8980,6 +8975,7 @@ W = angled&lt;p&gt;
 <instance part="JP6" gate="A" x="116.84" y="35.56" rot="R180"/>
 <instance part="JP7" gate="A" x="88.9" y="15.24" rot="R180"/>
 <instance part="JP8" gate="A" x="116.84" y="15.24" rot="R180"/>
+<instance part="RAC05-K" gate="G$1" x="81.28" y="88.9"/>
 </instances>
 <busses>
 </busses>
@@ -8993,8 +8989,8 @@ W = angled&lt;p&gt;
 <pinref part="C1" gate="G$1" pin="1"/>
 <wire x1="109.22" y1="91.44" x2="109.22" y2="93.98" width="0.1524" layer="91"/>
 <junction x="109.22" y="93.98"/>
-<pinref part="RAC05-05SK" gate="G$1" pin="VOUT+"/>
 <wire x1="96.52" y1="93.98" x2="109.22" y2="93.98" width="0.1524" layer="91"/>
+<pinref part="RAC05-K" gate="G$1" pin="VOUT+"/>
 </segment>
 <segment>
 <pinref part="JP1" gate="A" pin="3"/>
@@ -9035,10 +9031,10 @@ W = angled&lt;p&gt;
 </net>
 <net name="PE" class="0">
 <segment>
-<pinref part="RAC05-05SK" gate="G$1" pin="VOUT-"/>
 <wire x1="96.52" y1="83.82" x2="101.6" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="101.6" y1="83.82" x2="101.6" y2="81.28" width="0.1524" layer="91"/>
 <pinref part="SUPPLY1" gate="PE" pin="PE"/>
+<pinref part="RAC05-K" gate="G$1" pin="VOUT-"/>
 </segment>
 <segment>
 <pinref part="LM117" gate="A1" pin="ADJ"/>
@@ -9109,26 +9105,20 @@ W = angled&lt;p&gt;
 </net>
 <net name="VAC(L)" class="0">
 <segment>
-<pinref part="RAC05-05SK" gate="G$1" pin="AC(L)"/>
 <wire x1="66.04" y1="93.98" x2="60.96" y2="93.98" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="93.98" x2="60.96" y2="96.52" width="0.1524" layer="91"/>
 <label x="65.024" y="98.552" size="1.778" layer="95" rot="R180"/>
 <pinref part="F1" gate="G$1" pin="2"/>
-<wire x1="55.88" y1="93.98" x2="60.96" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="93.98" x2="60.96" y2="93.98" width="0.1524" layer="91"/>
 <junction x="60.96" y="93.98"/>
+<pinref part="RAC05-K" gate="G$1" pin="AC(L)"/>
 </segment>
 </net>
 <net name="VAC(N)" class="0">
 <segment>
-<pinref part="RAC05-05SK" gate="G$1" pin="AC(N)"/>
-<wire x1="30.48" y1="76.2" x2="43.18" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="43.18" y1="76.2" x2="43.18" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="43.18" y1="83.82" x2="45.72" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="83.82" x2="66.04" y2="83.82" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="83.82" x2="45.72" y2="86.36" width="0.1524" layer="91"/>
-<label x="43.18" y="86.36" size="1.778" layer="95"/>
-<junction x="45.72" y="83.82"/>
-<pinref part="MAINS-IN" gate="A" pin="2"/>
+<wire x1="35.56" y1="83.82" x2="66.04" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="RAC05-K" gate="G$1" pin="AC(N)"/>
+<label x="35.56" y="83.82" size="1.778" layer="95" rot="R180"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -9183,18 +9173,16 @@ W = angled&lt;p&gt;
 <net name="VAC(L)-INPUT" class="0">
 <segment>
 <pinref part="F1" gate="G$1" pin="1"/>
-<pinref part="SWITCH" gate="G$1" pin="2"/>
-<wire x1="35.56" y1="93.98" x2="43.18" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="88.9" x2="35.56" y2="88.9" width="0.1524" layer="91"/>
-<wire x1="35.56" y1="88.9" x2="35.56" y2="93.98" width="0.1524" layer="91"/>
+<wire x1="40.64" y1="93.98" x2="45.72" y2="93.98" width="0.1524" layer="91"/>
+<label x="40.64" y="93.98" size="1.778" layer="95" rot="R180"/>
 </segment>
 </net>
-<net name="PGND" class="0">
+<net name="VAC(G)" class="0">
 <segment>
-<wire x1="30.48" y1="73.66" x2="35.56" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="35.56" y1="73.66" x2="35.56" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="35.56" y1="76.2" x2="43.18" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="76.2" x2="43.18" y2="71.12" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="PE"/>
-<pinref part="MAINS-IN" gate="A" pin="1"/>
+<label x="35.56" y="76.2" size="1.778" layer="95" rot="R180"/>
 </segment>
 </net>
 <net name="SDA" class="0">
@@ -9335,15 +9323,6 @@ W = angled&lt;p&gt;
 <pinref part="STM32F070F6" gate="G$1" pin="PA9"/>
 <wire x1="-15.24" y1="86.36" x2="-12.7" y2="86.36" width="0.1524" layer="91"/>
 <label x="-12.7" y="86.36" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="N$7" class="0">
-<segment>
-<pinref part="MAINS-IN" gate="A" pin="3"/>
-<wire x1="30.48" y1="78.74" x2="35.56" y2="78.74" width="0.1524" layer="91"/>
-<wire x1="35.56" y1="78.74" x2="35.56" y2="86.36" width="0.1524" layer="91"/>
-<pinref part="SWITCH" gate="G$1" pin="1"/>
-<wire x1="35.56" y1="86.36" x2="30.48" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GND" class="0">

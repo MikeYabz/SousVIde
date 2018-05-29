@@ -7760,55 +7760,6 @@ Source: AVX .. aphvc.pdf</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="Library">
-<packages>
-<package name="AC/DC-CONVERTER">
-<wire x1="-12.745" y1="12.7" x2="12.745" y2="12.7" width="0.127" layer="21"/>
-<wire x1="12.745" y1="12.7" x2="12.745" y2="-12.7" width="0.127" layer="21"/>
-<wire x1="12.745" y1="-12.7" x2="-12.745" y2="-12.7" width="0.127" layer="21"/>
-<wire x1="-12.745" y1="-12.7" x2="-12.745" y2="12.7" width="0.127" layer="21"/>
-<pad name="P$1" x="-10" y="-5.67" drill="0.6" shape="square"/>
-<pad name="P$2" x="-10" y="-9.57" drill="0.6" shape="square"/>
-<pad name="P$3" x="10.76" y="10.775" drill="0.6" shape="square"/>
-<pad name="P$4" x="10.76" y="-0.655" drill="0.6" shape="square"/>
-<pad name="P$5" x="10.76" y="-10.815" drill="0.6" shape="square"/>
-<text x="-11.43" y="13.97" size="1.27" layer="25">&gt;NAME</text>
-</package>
-</packages>
-<symbols>
-<symbol name="AC/DC-CONVERTER">
-<wire x1="-10.16" y1="-10.16" x2="10.16" y2="-10.16" width="0.254" layer="94"/>
-<wire x1="10.16" y1="-10.16" x2="10.16" y2="10.16" width="0.254" layer="94"/>
-<wire x1="-10.16" y1="-10.16" x2="-10.16" y2="10.16" width="0.254" layer="94"/>
-<wire x1="-10.16" y1="10.16" x2="10.16" y2="10.16" width="0.254" layer="94"/>
-<pin name="AC(L)" x="-15.24" y="5.08" visible="pin" length="middle"/>
-<pin name="AC(N)" x="-15.24" y="-5.08" visible="pin" length="middle"/>
-<pin name="VOUT+" x="15.24" y="5.08" visible="pin" length="middle" rot="R180"/>
-<pin name="VOUT-" x="15.24" y="-5.08" visible="pin" length="middle" rot="R180"/>
-<text x="-5.08" y="12.7" size="1.778" layer="95">&gt;NAME</text>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="AC/DC-CONVERTER">
-<gates>
-<gate name="G$1" symbol="AC/DC-CONVERTER" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="AC/DC-CONVERTER">
-<connects>
-<connect gate="G$1" pin="AC(L)" pad="P$1"/>
-<connect gate="G$1" pin="AC(N)" pad="P$2"/>
-<connect gate="G$1" pin="VOUT+" pad="P$4"/>
-<connect gate="G$1" pin="VOUT-" pad="P$5"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="supply1" urn="urn:adsk.eagle:library:371">
 <description>&lt;b&gt;Supply Symbols&lt;/b&gt;&lt;p&gt;
  GND, VCC, 0V, +5V, -5V, etc.&lt;p&gt;
@@ -8228,6 +8179,18 @@ MAX3223-MAX3243.pdf</description>
 <rectangle x1="-2.3766" y1="2.2828" x2="-2.1734" y2="3.121" layer="51"/>
 <rectangle x1="-3.0266" y1="2.2828" x2="-2.8234" y2="3.121" layer="51"/>
 </package>
+<package name="AC/DC-CONVERTER">
+<wire x1="-12.745" y1="12.7" x2="12.745" y2="12.7" width="0.127" layer="21"/>
+<wire x1="12.745" y1="12.7" x2="12.745" y2="-12.7" width="0.127" layer="21"/>
+<wire x1="12.745" y1="-12.7" x2="-12.745" y2="-12.7" width="0.127" layer="21"/>
+<wire x1="-12.745" y1="-12.7" x2="-12.745" y2="12.7" width="0.127" layer="21"/>
+<pad name="P$1" x="-10" y="-5.67" drill="1.016" shape="square"/>
+<pad name="P$2" x="-10" y="-9.57" drill="1.016" shape="square"/>
+<pad name="P$3" x="10.76" y="10.775" drill="1.016" shape="square"/>
+<pad name="P$4" x="10.76" y="-0.655" drill="1.016" shape="square"/>
+<pad name="P$5" x="10.76" y="-10.815" drill="1.016" shape="square"/>
+<text x="-11.43" y="13.97" size="1.27" layer="25">&gt;NAME</text>
+</package>
 </packages>
 <symbols>
 <symbol name="STM32F07">
@@ -8256,6 +8219,17 @@ MAX3223-MAX3243.pdf</description>
 <wire x1="10.16" y1="15.24" x2="-10.16" y2="15.24" width="0.254" layer="97"/>
 <wire x1="-10.16" y1="15.24" x2="-10.16" y2="-12.7" width="0.254" layer="97"/>
 <text x="-10.16" y="15.24" size="1.778" layer="95">&gt;NAME</text>
+</symbol>
+<symbol name="AC/DC-CONVERTER">
+<wire x1="-10.16" y1="-10.16" x2="10.16" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-10.16" x2="10.16" y2="10.16" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-10.16" x2="-10.16" y2="10.16" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="10.16" x2="10.16" y2="10.16" width="0.254" layer="94"/>
+<pin name="AC(L)" x="-15.24" y="5.08" visible="pin" length="middle"/>
+<pin name="AC(N)" x="-15.24" y="-5.08" visible="pin" length="middle"/>
+<pin name="VOUT+" x="15.24" y="5.08" visible="pin" length="middle" rot="R180"/>
+<pin name="VOUT-" x="15.24" y="-5.08" visible="pin" length="middle" rot="R180"/>
+<text x="-5.08" y="12.7" size="1.778" layer="95">&gt;NAME</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -8286,6 +8260,24 @@ MAX3223-MAX3243.pdf</description>
 <connect gate="G$1" pin="VDD" pad="16"/>
 <connect gate="G$1" pin="VDDA" pad="5"/>
 <connect gate="G$1" pin="VSS" pad="15"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="AC/DC-CONVERTER">
+<gates>
+<gate name="G$1" symbol="AC/DC-CONVERTER" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="AC/DC-CONVERTER">
+<connects>
+<connect gate="G$1" pin="AC(L)" pad="P$1"/>
+<connect gate="G$1" pin="AC(N)" pad="P$2"/>
+<connect gate="G$1" pin="VOUT+" pad="P$4"/>
+<connect gate="G$1" pin="VOUT-" pad="P$5"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -8864,7 +8856,7 @@ W = angled&lt;p&gt;
 </classes>
 <parts>
 <part name="STM32F070F6" library="SousVide Library" deviceset="STM32F07" device="" value=""/>
-<part name="RAC05-05SK" library="Library" deviceset="AC/DC-CONVERTER" device=""/>
+<part name="RAC05-05SK" library="SousVide Library" deviceset="AC/DC-CONVERTER" device=""/>
 <part name="+3V1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="SUPPLY1" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="PE" device=""/>
 <part name="LM117" library="linear" library_urn="urn:adsk.eagle:library:262" deviceset="*317" device="EMP" package3d_urn="urn:adsk.eagle:package:16418/2"/>
