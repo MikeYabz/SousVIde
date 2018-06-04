@@ -56,8 +56,10 @@
 #define Relay4_GPIO_Port GPIOA
 #define Relay5_Pin GPIO_PIN_4
 #define Relay5_GPIO_Port GPIOA
-#define TempSensorIn_Pin GPIO_PIN_14
-#define TempSensorIn_GPIO_Port GPIOA
+#define Relay6_Pin GPIO_PIN_5
+#define Relay6_GPIO_Port GPIOA
+#define TempRead_Pin GPIO_PIN_1
+#define TempRead_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

@@ -38,13 +38,15 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32f0xx_hal.h"
+#include "adc.h"
 #include "i2c.h"
-#include "spi.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* USER CODE BEGIN Includes */
-
+#include "i2c-lcd.h"
+#include "string.h"
+#include "math.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -92,11 +94,11 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART1_UART_Init();
-  MX_SPI1_Init();
   MX_I2C1_Init();
+  MX_ADC_Init();
 
   /* USER CODE BEGIN 2 */
-
+		
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -106,7 +108,37 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
+		static char output[40];
+		lcd_send_cmd (0x80);  // goto row 1
+		static int length;
+		static uint32_t tempReading;
+		
+		HAL_ADC_Start(&hadc);
+		HAL_ADC_PollForConversion(&hadc,5);
+		tempReading = HAL_ADC_GetValue(&hadc);
+		HAL_ADC_Stop(&hadc);
 
+		double thermistorResistance = (6142500/(double)tempReading)-1506;
+		double y = 3969/(log(thermistorResistance/(10000*exp(-3969/298.15))))-273.15;
+		//float remainder = (y - (int)y)/0.1;
+		int left = (int) y;
+		int right = (int)((y - (int) y)*10);
+		
+		length = sprintf(output,"Temp:%i.%i",left,right);//(float)y);
+		lcd_transmit(length,output);
+		/*
+		HAL_Delay(10);
+		lcd_send_cmd (0xc0); //go to row 2
+		HAL_Delay(10);
+		length = sprintf(output,"Temp:%f",y);//(float)y);
+		lcd_transmit(length,output);
+		*/
+
+		HAL_Delay (200);
+		lcd_send_cmd (0x01);  // clear the display
+		HAL_Delay (5);
+		
+		
   }
   /* USER CODE END 3 */
 
@@ -123,9 +155,11 @@ void SystemClock_Config(void)
 
     /**Initializes the CPU, AHB and APB busses clocks 
     */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_HSI14;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSI14State = RCC_HSI14_ON;
   RCC_OscInitStruct.HSICalibrationValue = 16;
+  RCC_OscInitStruct.HSI14CalibrationValue = 16;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
