@@ -98,7 +98,22 @@ int main(void)
   MX_ADC_Init();
 
   /* USER CODE BEGIN 2 */
+		HAL_Delay(100);
+		uint16_t hours = 0;
+		uint16_t minutes = 0;
+		uint16_t seconds = 0;
+		uint32_t totalSeconds;
+		lcd_init();		
 		
+		hours = 1;
+		minutes = 7;
+		seconds = 17;
+		totalSeconds = seconds+(((hours*60)+minutes)*60);
+		uint32_t secondTimestamp = 0;
+		
+		float temp;
+		float setTemp;
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -106,38 +121,52 @@ int main(void)
   while (1)
   {
   /* USER CODE END WHILE */
-
   /* USER CODE BEGIN 3 */
+		
+		if (HAL_GetTick() - secondTimestamp > 1000)
+		{
+			secondTimestamp = HAL_GetTick();
+			totalSeconds = totalSeconds - 1;
+		}
+		
+		hours = totalSeconds / 3600;
+		minutes = (totalSeconds / 60) % 60;
+		seconds	= totalSeconds % 60;
+		 	
+		temp = 14.2543;
+		setTemp = 23.764;
+		
+		int leftTemp = (int) temp;
+		int rightTemp = (int)((temp - (int) temp)*10);		
+		
+		int leftSetTemp = (int) setTemp;
+		int rightSetTemp = (int)((setTemp - (int) setTemp)*10);	
+		
 		static char output[40];
-		lcd_send_cmd (0x80);  // goto row 1
 		static int length;
 		static uint32_t tempReading;
 		
-		HAL_ADC_Start(&hadc);
-		HAL_ADC_PollForConversion(&hadc,5);
-		tempReading = HAL_ADC_GetValue(&hadc);
-		HAL_ADC_Stop(&hadc);
-
-		double thermistorResistance = (6142500/(double)tempReading)-1506;
-		double y = 3969/(log(thermistorResistance/(10000*exp(-3969/298.15))))-273.15;
-		//float remainder = (y - (int)y)/0.1;
-		int left = (int) y;
-		int right = (int)((y - (int) y)*10);
 		
-		length = sprintf(output,"Temp:%i.%i",left,right);//(float)y);
+		if (temp < setTemp)
+		{
+			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,GPIO_PIN_SET);
+		}
+		else
+		{
+			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,GPIO_PIN_RESET);
+		}	
+		
+		lcd_send_cmd (0x80);  // goto row 1
+		length = sprintf(output,"%ih %im %is",hours,minutes,seconds);//(float)y);
 		lcd_transmit(length,output);
-		/*
-		HAL_Delay(10);
+		
 		lcd_send_cmd (0xc0); //go to row 2
-		HAL_Delay(10);
-		length = sprintf(output,"Temp:%f",y);//(float)y);
+		length = sprintf(output,"T:%i.%i Set:%i.%i",leftTemp,rightTemp,leftSetTemp,rightSetTemp);//(float)y);
 		lcd_transmit(length,output);
-		*/
-
-		HAL_Delay (200);
+		
+		HAL_Delay (250);
 		lcd_send_cmd (0x01);  // clear the display
 		HAL_Delay (5);
-		
 		
   }
   /* USER CODE END 3 */
