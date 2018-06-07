@@ -67,12 +67,10 @@ void SystemClock_Config(void);
 /* USER CODE BEGIN 0 */
 
 
-
-
 /************************************************************************************/
 //	*		Thermistor Temperature Polling
 /************************************************************************************/
-float getTemp()
+float getTemp(void)
 {
 	#define Resistor 1487 //thermistor is the top part of a resistor divider, this value is the bottom fixed value
 	
@@ -88,6 +86,10 @@ float getTemp()
 }
 
 
+/*************************************END********************************************/
+
+
+
 /************************************************************************************/
 //	*		Calculate Hours, Minutes and Seconds Components from Total Seconds
 /************************************************************************************/
@@ -99,6 +101,10 @@ void getTime(uint32_t totalSeconds,uint16_t* hours,uint16_t* minutes,uint16_t* s
 }
 
 
+/*************************************END********************************************/
+
+
+
 /************************************************************************************/
 //	*		Calculate Total Seconds from Hours, Minutes and Seconds Components
 /************************************************************************************/
@@ -106,6 +112,10 @@ void setTime(uint32_t* totalSeconds,uint16_t hours,uint16_t minutes,uint16_t sec
 {
 	*totalSeconds = seconds+(((hours*60)+minutes)*60);
 }
+/*************************************END********************************************/
+
+
+
 /************************************************************************************/
 //	*		Update LCD
 /************************************************************************************/
@@ -123,11 +133,95 @@ void updateLCD(uint8_t lengthTop,uint8_t lengthBottom,char* topStr,char* bottomS
 
 
 
+/*************************************END********************************************/
 
 
 
+/************************************************************************************/
+//	*		Button Press
+/************************************************************************************/
+uint8_t getButtonPress (void)
+{
+	#define queueSize 100
+	static uint8_t queue[queueSize] = {0};
+	
+				//GPIO Readings
+	static uint8_t buttonRead;
+	if (HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_6) == 1 && HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_7 == 1))
+	{
+		buttonRead = 1;
+	}
+	else if(HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_6) == 1)
+	{
+		buttonRead = 2;
+	}
+	else if(HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_7) == 1)
+	{
+		buttonRead = 3;
+	}
+	else
+	{
+		buttonRead = 0;
+	}				
+	
+		//Queue Calculations
+	for (uint8_t i=0;i<queueSize-1;i++)
+	{
+		queue[i] = queue[i+1];
+	}
+	queue[queueSize-1] = buttonRead;
+	static uint8_t totalButtonReads[4];
+	for(uint8_t i=0;i<4;i++)
+	{
+		totalButtonReads[i] = 0;		;
+	}		
+	for (uint8_t i=0;i<queueSize;i++)
+	{
+		if (queue[i] == 0) totalButtonReads[0]++;
+		else if (queue[i] == 1) totalButtonReads[1]++;
+		else if (queue[i] == 2) totalButtonReads[2]++;
+		else if (queue[i] == 3) totalButtonReads[3]++;
+	}
+	static uint8_t filteredReading;		
+	if (totalButtonReads[0] > totalButtonReads[1])
+	{
+		filteredReading  = 0;
+	}
+	else
+	{
+		filteredReading = 1;
+	}	
+	if (totalButtonReads[2] > totalButtonReads[filteredReading])
+	{
+		filteredReading = 2;
+	}
+	if (totalButtonReads[3] > totalButtonReads[filteredReading])
+	{
+		filteredReading = 3;
+	}								
+	
+		//Schmitt Trigger Calculations
+	static uint8_t buttonPress = 0;
+	if ((buttonPress == 0 ) && (filteredReading != 0))
+	{
+		if (totalButtonReads[filteredReading] > queueSize*70/100)
+		{
+			buttonPress = filteredReading;
+		}			
+	}
+	else if (buttonPress == filteredReading)
+	{
+		if (totalButtonReads[filteredReading] < queueSize*30/100)
+		{
+			buttonPress = 0;
+		}			
+	}
+	return buttonPress;
+}
 
 
+
+/*************************************END********************************************/
 
 
 
@@ -163,33 +257,22 @@ int main(void)
   MX_ADC_Init();
 
   /* USER CODE BEGIN 2 */
+
+
+
+
+
+/************************************************************************************/
+//	*		Init LCD and Times
+/************************************************************************************/
 		HAL_Delay(100);	//short startup delay
 		lcd_init();	//initialize the LCD;
 		
 		uint16_t hours = 0;	//hour component of time, used for easy UI 
 		uint16_t minutes = 0;	//minute component of time, used for easy UI 
 		uint16_t seconds = 0;	//second component of time, used for easy UI 
-		uint32_t totalSeconds = 0;	//total seconds, used internally for all calculations					
-		
-		float temp;	//temperature
-		float filteredTemp;	//temperature after LPF
-		float setTemp = 25;	//goal temperature, defaults 25
-		filteredTemp = getTemp(); 	//initialize filtered temp as it uses hysterysis
-		
-		
-		enum states{	//input states are where values are being changed;
-			startup = 0, 
-			main = 1, 
-			mainInput = 2,
-			inProgress = 3, 
-			inProgressInput = 4, 
-			inProgressExtra = 5, 
-			inProgressExtraInput = 6 
-		};
-		enum states state = startup;
-		enum states pastState = startup;
-		
-		
+		uint32_t totalSeconds = 0;	//total seconds, used internally for all calculations		
+
 		char outputTop[40];
 		uint8_t lengthTop;
 		char outputBottom[40];
@@ -198,7 +281,36 @@ int main(void)
 		int rightTemp;	//value right of decimal, done so only 1 decimal place of the float is shown
 		int leftSetTemp;	//value left of decimal, done so only 1 decimal place of the float is shown
 		int rightSetTemp;	//value right of decimal, done so only 1 decimal place of the float is shown	
+/*************************************END********************************************/		
 		
+		
+/************************************************************************************/
+//	*		Init Temp Variables
+/************************************************************************************/
+		float temp;	//temperature
+		float filteredTemp;	//temperature after LPF
+		float setTemp = 25;	//goal temperature, defaults 25
+		filteredTemp = getTemp(); 	//initialize filtered temp as it uses hysterysis
+/*************************************END********************************************/		
+		
+		
+/************************************************************************************/
+//	*		Init State Machine
+/************************************************************************************/		
+		enum states{	//input states are where values are being changed;
+			startup = 0, 
+			main = 1, 
+			mainInput = 2, 
+			Extra = 3, 
+			ExtraInput = 4 
+		};
+		enum states state = startup;
+		enum states pastState = startup;
+/*************************************END********************************************/		
+		
+		
+
+
 		
   /* USER CODE END 2 */
 
@@ -207,17 +319,38 @@ int main(void)
   while (1)
   {
   /* USER CODE END WHILE */
-  /* USER CODE BEGIN 3 */										
+  /* USER CODE BEGIN 3 */		
+
 		
+		
+		
+		HAL_Delay(1);		
+		
+/************************************************************************************/
+//	*		Time Update, Temperature Read and Button press
+/************************************************************************************/	
+			//Time
 		static uint32_t secondTimestamp = 0;
 		if (HAL_GetTick() - secondTimestamp > 1000)	//decrements totalSeconds every second 
 		{
 			secondTimestamp = HAL_GetTick();
 			totalSeconds = totalSeconds - 1;
 		}
+		getTime(totalSeconds,&hours,&minutes,&seconds);	//updateLCD hours/minuets and seconds	
 		
+			//Temperature
 		temp = getTemp();  //read Thermistor		
-		filteredTemp = (temp + filteredTemp * 4)/5;	//LPF for more stability		
+		filteredTemp = (temp + filteredTemp * 4)/5;	//LPF for more stability in readings	
+		leftTemp = (int) filteredTemp;	//remove anything right of the decimal
+		rightTemp = (int)((filteredTemp - (int) filteredTemp)*10);	//remove whatevers left of the decimal
+		leftSetTemp = (int) setTemp;	//remove anything right of the decimal
+		rightSetTemp = (int)((setTemp - (int) setTemp)*10);	//remove whatevers left of the decimal
+			
+			//Button Press
+		getButtonPress();
+/*************************************END********************************************/
+		
+		
 		
 /************************************************************************************/
 //	*		Next State Logic
@@ -230,7 +363,7 @@ int main(void)
 					state = main;
 				}
 				break;
-			case 1:				
+			case 1:
 				break;
 			case 2:
 				break;
@@ -238,14 +371,12 @@ int main(void)
 				break;
 			case 4:
 				break;
-			case 5:
-				break;
-			case 6:
-				break;
 			default:
 				break;
 		}
-
+/*************************************END********************************************/
+		
+		
 		
 /************************************************************************************/
 //	*		State Logic
@@ -258,37 +389,33 @@ int main(void)
 				updateLCD(lengthTop,lengthBottom,outputTop,outputBottom);
 				break;
 			case 1:
+				lengthTop = sprintf(outputTop,"%ih %im %is",hours,minutes,seconds);//output time		
+				lengthBottom = sprintf(outputBottom,"T:%i.%i Set:%i.%i",leftTemp,rightTemp,leftSetTemp,rightSetTemp);//output current temp and set temp	
+				updateLCD(lengthTop,lengthBottom,outputTop,outputBottom);
 				break;
 			case 2:
+				lengthTop = sprintf(outputTop,"%ih %im %is",hours,minutes,seconds);//output time		
+				lengthBottom = sprintf(outputBottom,"T:%i.%i Set:%i.%i",leftTemp,rightTemp,leftSetTemp,rightSetTemp);//output current temp and set temp	
+				updateLCD(lengthTop,lengthBottom,outputTop,outputBottom);
 				break;
 			case 3:
 				break;
 			case 4:
 				break;
-			case 5:
-				break;
-			case 6:
-				break;
 			default:
 				break;
 		}
 		pastState = state;
-		
-		
-		/*
-		leftTemp = (int) filteredTemp;
-		rightTemp = (int)((filteredTemp - (int) filteredTemp)*10);				
-		leftSetTemp = (int) setTemp;
-		rightSetTemp = (int)((setTemp - (int) setTemp)*10);
-		getTime(totalSeconds,&hours,&minutes,&seconds);	
-		*/
-		
+/*************************************END********************************************/		
 		
 		
 		
 /************************************************************************************/
 //	*		Heater On/Off Logic
-/************************************************************************************/
+/************************************************************************************/		
+		
+		//Only setup for one Heater now, PID will be implented here
+		
 		if (filteredTemp < setTemp)
 		{
 			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,GPIO_PIN_SET);
@@ -297,14 +424,12 @@ int main(void)
 		{
 			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,GPIO_PIN_RESET);
 		}	
-
-/************************************************************************************/
-//	*		LCD Display
-/************************************************************************************/								
-				
-		lengthTop = sprintf(outputTop,"%ih %im %is",hours,minutes,seconds);//output time
+/*************************************END********************************************/		
 		
-		lengthBottom = sprintf(outputBottom,"T:%i.%i Set:%i.%i",leftTemp,rightTemp,leftSetTemp,rightSetTemp);//output current temp and set temp		
+		
+		
+		
+		
   }
   /* USER CODE END 3 */
 }
