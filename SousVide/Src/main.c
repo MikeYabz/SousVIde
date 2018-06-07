@@ -133,21 +133,34 @@ int main(void)
 		minutes = (totalSeconds / 60) % 60;
 		seconds	= totalSeconds % 60;
 		 	
-		temp = 14.2543;
-		setTemp = 23.764;
+		//temp = 14.2543;
 		
-		int leftTemp = (int) temp;
-		int rightTemp = (int)((temp - (int) temp)*10);		
+		static uint32_t tempReading;
+		HAL_ADC_Start(&hadc);
+		HAL_ADC_PollForConversion(&hadc,5);
+		tempReading = HAL_ADC_GetValue(&hadc);
+		HAL_ADC_Stop(&hadc);
+		
+		double thermistorResistance = (6142500/(double)tempReading)-1506;
+		double y = 3969/(log(thermistorResistance/(10000*exp(-3969/298.15))))-273.15;
+		//float remainder = (y - (int)y)/0.1;
+		temp = (float)y;
+
+		static float filteredTemp = 25;
+		filteredTemp = (temp + filteredTemp * 4)/5;
+		
+		setTemp = 65.7;
+		int leftTemp = (int) filteredTemp;
+		int rightTemp = (int)((filteredTemp - (int) filteredTemp)*10);		
 		
 		int leftSetTemp = (int) setTemp;
 		int rightSetTemp = (int)((setTemp - (int) setTemp)*10);	
 		
 		static char output[40];
 		static int length;
-		static uint32_t tempReading;
 		
 		
-		if (temp < setTemp)
+		if (filteredTemp < setTemp)
 		{
 			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,GPIO_PIN_SET);
 		}
