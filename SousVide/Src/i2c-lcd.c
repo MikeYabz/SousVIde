@@ -45,7 +45,7 @@ void lcd_send_string (char *str)
 	while (*str) lcd_send_data (*str++);
 }
 
-void lcd_transmit(int length, char *data)
+void lcd_transmit(uint8_t length, char *data)
 {
 	for(int i = 0;i<length;i++)
 		{

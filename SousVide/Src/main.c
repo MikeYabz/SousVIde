@@ -66,6 +66,71 @@ void SystemClock_Config(void);
 
 /* USER CODE BEGIN 0 */
 
+
+
+
+/************************************************************************************/
+//	*		Thermistor Temperature Polling
+/************************************************************************************/
+float getTemp()
+{
+	#define Resistor 1487 //thermistor is the top part of a resistor divider, this value is the bottom fixed value
+	
+	uint16_t thermistorReading;
+	HAL_ADC_Start(&hadc);
+	HAL_ADC_PollForConversion(&hadc,5);
+	thermistorReading = HAL_ADC_GetValue(&hadc);
+	HAL_ADC_Stop(&hadc);
+	
+	double thermistorResistance = (6142500/(double)thermistorReading)-Resistor;
+	double y = 3969/(log(thermistorResistance/(10000*exp(-3969/298.15))))-273.15;
+	return (float)y;
+}
+
+
+/************************************************************************************/
+//	*		Calculate Hours, Minutes and Seconds Components from Total Seconds
+/************************************************************************************/
+void getTime(uint32_t totalSeconds,uint16_t* hours,uint16_t* minutes,uint16_t* seconds)
+{
+	*hours = totalSeconds / 3600;
+	*minutes = (totalSeconds / 60) % 60;
+	*seconds	= totalSeconds % 60;
+}
+
+
+/************************************************************************************/
+//	*		Calculate Total Seconds from Hours, Minutes and Seconds Components
+/************************************************************************************/
+void setTime(uint32_t* totalSeconds,uint16_t hours,uint16_t minutes,uint16_t seconds)
+{
+	*totalSeconds = seconds+(((hours*60)+minutes)*60);
+}
+/************************************************************************************/
+//	*		Update LCD
+/************************************************************************************/
+void updateLCD(uint8_t lengthTop,uint8_t lengthBottom,char* topStr,char* bottomStr)
+{
+	lcd_send_cmd (0x01);  // clear the display
+	HAL_Delay (5);
+	
+	lcd_send_cmd (0x80);  // goto row 1
+	lcd_transmit(lengthTop,topStr);
+	
+	lcd_send_cmd (0xc0); //go to row 2
+	lcd_transmit(lengthBottom,bottomStr);	
+}
+
+
+
+
+
+
+
+
+
+
+
 /* USER CODE END 0 */
 
 int main(void)
@@ -98,22 +163,43 @@ int main(void)
   MX_ADC_Init();
 
   /* USER CODE BEGIN 2 */
-		HAL_Delay(100);
-		uint16_t hours = 0;
-		uint16_t minutes = 0;
-		uint16_t seconds = 0;
-		uint32_t totalSeconds;
-		lcd_init();		
+		HAL_Delay(100);	//short startup delay
+		lcd_init();	//initialize the LCD;
 		
-		hours = 1;
-		minutes = 7;
-		seconds = 17;
-		totalSeconds = seconds+(((hours*60)+minutes)*60);
-		uint32_t secondTimestamp = 0;
+		uint16_t hours = 0;	//hour component of time, used for easy UI 
+		uint16_t minutes = 0;	//minute component of time, used for easy UI 
+		uint16_t seconds = 0;	//second component of time, used for easy UI 
+		uint32_t totalSeconds = 0;	//total seconds, used internally for all calculations					
 		
-		float temp;
-		float setTemp;
-
+		float temp;	//temperature
+		float filteredTemp;	//temperature after LPF
+		float setTemp = 25;	//goal temperature, defaults 25
+		filteredTemp = getTemp(); 	//initialize filtered temp as it uses hysterysis
+		
+		
+		enum states{	//input states are where values are being changed;
+			startup = 0, 
+			main = 1, 
+			mainInput = 2,
+			inProgress = 3, 
+			inProgressInput = 4, 
+			inProgressExtra = 5, 
+			inProgressExtraInput = 6 
+		};
+		enum states state = startup;
+		enum states pastState = startup;
+		
+		
+		char outputTop[40];
+		uint8_t lengthTop;
+		char outputBottom[40];
+		uint8_t lengthBottom;		
+		int leftTemp;	//value left of decimal, done so only 1 decimal place of the float is shown
+		int rightTemp;	//value right of decimal, done so only 1 decimal place of the float is shown
+		int leftSetTemp;	//value left of decimal, done so only 1 decimal place of the float is shown
+		int rightSetTemp;	//value right of decimal, done so only 1 decimal place of the float is shown	
+		
+		
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -121,45 +207,88 @@ int main(void)
   while (1)
   {
   /* USER CODE END WHILE */
-  /* USER CODE BEGIN 3 */
+  /* USER CODE BEGIN 3 */										
 		
-		if (HAL_GetTick() - secondTimestamp > 1000)
+		static uint32_t secondTimestamp = 0;
+		if (HAL_GetTick() - secondTimestamp > 1000)	//decrements totalSeconds every second 
 		{
 			secondTimestamp = HAL_GetTick();
 			totalSeconds = totalSeconds - 1;
 		}
 		
-		hours = totalSeconds / 3600;
-		minutes = (totalSeconds / 60) % 60;
-		seconds	= totalSeconds % 60;
-		 	
-		//temp = 14.2543;
+		temp = getTemp();  //read Thermistor		
+		filteredTemp = (temp + filteredTemp * 4)/5;	//LPF for more stability		
 		
-		static uint32_t tempReading;
-		HAL_ADC_Start(&hadc);
-		HAL_ADC_PollForConversion(&hadc,5);
-		tempReading = HAL_ADC_GetValue(&hadc);
-		HAL_ADC_Stop(&hadc);
-		
-		double thermistorResistance = (6142500/(double)tempReading)-1506;
-		double y = 3969/(log(thermistorResistance/(10000*exp(-3969/298.15))))-273.15;
-		//float remainder = (y - (int)y)/0.1;
-		temp = (float)y;
+/************************************************************************************/
+//	*		Next State Logic
+/************************************************************************************/	
+		switch(pastState)
+		{
+			case startup:
+				if (HAL_GetTick() > 2000)	//show for the first 2 seconds or so
+				{
+					state = main;
+				}
+				break;
+			case 1:				
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 6:
+				break;
+			default:
+				break;
+		}
 
-		static float filteredTemp = 25;
-		filteredTemp = (temp + filteredTemp * 4)/5;
 		
-		setTemp = 65.7;
-		int leftTemp = (int) filteredTemp;
-		int rightTemp = (int)((filteredTemp - (int) filteredTemp)*10);		
+/************************************************************************************/
+//	*		State Logic
+/************************************************************************************/		
+		switch(state)
+		{
+			case startup:
+				lengthTop = sprintf(outputTop,"Hello!");
+				lengthBottom = sprintf(outputTop,"M.Yabz-SousVide");
+				updateLCD(lengthTop,lengthBottom,outputTop,outputBottom);
+				break;
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 6:
+				break;
+			default:
+				break;
+		}
+		pastState = state;
 		
-		int leftSetTemp = (int) setTemp;
-		int rightSetTemp = (int)((setTemp - (int) setTemp)*10);	
 		
-		static char output[40];
-		static int length;
+		/*
+		leftTemp = (int) filteredTemp;
+		rightTemp = (int)((filteredTemp - (int) filteredTemp)*10);				
+		leftSetTemp = (int) setTemp;
+		rightSetTemp = (int)((setTemp - (int) setTemp)*10);
+		getTime(totalSeconds,&hours,&minutes,&seconds);	
+		*/
 		
 		
+		
+		
+/************************************************************************************/
+//	*		Heater On/Off Logic
+/************************************************************************************/
 		if (filteredTemp < setTemp)
 		{
 			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,GPIO_PIN_SET);
@@ -168,22 +297,16 @@ int main(void)
 		{
 			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,GPIO_PIN_RESET);
 		}	
+
+/************************************************************************************/
+//	*		LCD Display
+/************************************************************************************/								
+				
+		lengthTop = sprintf(outputTop,"%ih %im %is",hours,minutes,seconds);//output time
 		
-		lcd_send_cmd (0x80);  // goto row 1
-		length = sprintf(output,"%ih %im %is",hours,minutes,seconds);//(float)y);
-		lcd_transmit(length,output);
-		
-		lcd_send_cmd (0xc0); //go to row 2
-		length = sprintf(output,"T:%i.%i Set:%i.%i",leftTemp,rightTemp,leftSetTemp,rightSetTemp);//(float)y);
-		lcd_transmit(length,output);
-		
-		HAL_Delay (250);
-		lcd_send_cmd (0x01);  // clear the display
-		HAL_Delay (5);
-		
+		lengthBottom = sprintf(outputBottom,"T:%i.%i Set:%i.%i",leftTemp,rightTemp,leftSetTemp,rightSetTemp);//output current temp and set temp		
   }
   /* USER CODE END 3 */
-
 }
 
 /** System Clock Configuration
