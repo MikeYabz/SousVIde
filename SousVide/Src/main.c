@@ -140,6 +140,14 @@ void updateLCD(uint8_t lengthTop,uint8_t lengthBottom,char* topStr,char* bottomS
 /************************************************************************************/
 //	*		Button Press
 /************************************************************************************/
+enum buttonPresses	
+{
+	NOPRESS = 0,
+	CENTER = 1,
+	LEFT = 2,
+	RIGHT = 3
+};
+enum buttonPresses buttonPress;		
 uint8_t getButtonPress (void)
 {
 	#define queueSize 100
@@ -149,19 +157,19 @@ uint8_t getButtonPress (void)
 	static uint8_t buttonRead;
 	if (HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_6) == 1 && HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_7 == 1))
 	{
-		buttonRead = 1;
+		buttonRead = CENTER;
 	}
 	else if(HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_6) == 1)
 	{
-		buttonRead = 2;
+		buttonRead = LEFT;
 	}
 	else if(HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_7) == 1)
 	{
-		buttonRead = 3;
+		buttonRead = RIGHT;
 	}
 	else
 	{
-		buttonRead = 0;
+		buttonRead = NOPRESS;
 	}				
 	
 		//Queue Calculations
@@ -177,32 +185,32 @@ uint8_t getButtonPress (void)
 	}		
 	for (uint8_t i=0;i<queueSize;i++)
 	{
-		if (queue[i] == 0) totalButtonReads[0]++;
-		else if (queue[i] == 1) totalButtonReads[1]++;
-		else if (queue[i] == 2) totalButtonReads[2]++;
-		else if (queue[i] == 3) totalButtonReads[3]++;
+		if (queue[i] == NOPRESS) totalButtonReads[NOPRESS]++;
+		else if (queue[i] == CENTER) totalButtonReads[CENTER]++;
+		else if (queue[i] == LEFT) totalButtonReads[LEFT]++;
+		else if (queue[i] == RIGHT) totalButtonReads[CENTER]++;
 	}
 	static uint8_t filteredReading;		
-	if (totalButtonReads[0] > totalButtonReads[1])
+	if (totalButtonReads[NOPRESS] > totalButtonReads[CENTER])
 	{
-		filteredReading  = 0;
+		filteredReading  = NOPRESS;
 	}
 	else
 	{
-		filteredReading = 1;
+		filteredReading = CENTER;
 	}	
-	if (totalButtonReads[2] > totalButtonReads[filteredReading])
+	if (totalButtonReads[LEFT] > totalButtonReads[filteredReading])
 	{
-		filteredReading = 2;
+		filteredReading = LEFT;
 	}
-	if (totalButtonReads[3] > totalButtonReads[filteredReading])
+	if (totalButtonReads[RIGHT] > totalButtonReads[filteredReading])
 	{
-		filteredReading = 3;
+		filteredReading = RIGHT;
 	}								
 	
-		//Schmitt Trigger Calculations
+		//Schmitt Trigger
 	static uint8_t buttonPress = 0;
-	if ((buttonPress == 0 ) && (filteredReading != 0))
+	if ((buttonPress == NOPRESS ) && (filteredReading != NOPRESS))
 	{
 		if (totalButtonReads[filteredReading] > queueSize*70/100)
 		{
@@ -213,7 +221,7 @@ uint8_t getButtonPress (void)
 	{
 		if (totalButtonReads[filteredReading] < queueSize*30/100)
 		{
-			buttonPress = 0;
+			buttonPress = NOPRESS;
 		}			
 	}
 	return buttonPress;
@@ -297,18 +305,26 @@ int main(void)
 /************************************************************************************/
 //	*		Init State Machine
 /************************************************************************************/		
-		enum states{	//input states are where values are being changed;
-			startup = 0, 
-			main = 1, 
-			mainInput = 2, 
+		enum states		{	//input states are where values are being changed;
+			Startup = 0, 
+			Main = 1, 
+			MainInput = 2, 
 			Extra = 3, 
 			ExtraInput = 4 
 		};
-		enum states state = startup;
-		enum states pastState = startup;
+		enum states state = Startup;
+		enum states pastState = Startup;
 /*************************************END********************************************/		
+
 		
-		
+/************************************************************************************/
+//	*		Init Miscellaneous
+/************************************************************************************/			
+		uint8_t counter = 0; //generic counter for use
+		uint8_t button = NOPRESS;	//stores the buttonPress
+		uint8_t pastButton = NOPRESS;	//stores the buttonPress
+		uint8_t relayEnable[6] = {1,1,1,1,1,1};
+/*************************************END********************************************/
 
 
 		
@@ -347,7 +363,8 @@ int main(void)
 		rightSetTemp = (int)((setTemp - (int) setTemp)*10);	//remove whatevers left of the decimal
 			
 			//Button Press
-		getButtonPress();
+		pastButton = button;
+		button = getButtonPress();
 /*************************************END********************************************/
 		
 		
@@ -357,20 +374,51 @@ int main(void)
 /************************************************************************************/	
 		switch(pastState)
 		{
-			case startup:
+			case Startup:
 				if (HAL_GetTick() > 2000)	//show for the first 2 seconds or so
 				{
-					state = main;
+					state = Main;
 				}
 				break;
-			case 1:
+				
+			case Main:
+				if(button == CENTER)
+				{
+					state = MainInput;
+				}
+				else if (button == 1 || button ==  2)
+				{
+					state = Extra;
+				}				
 				break;
-			case 2:
+				
+			case MainInput:
+				if (counter >= 9)
+				{
+					counter = 0;
+					state = Main;
+				}
 				break;
-			case 3:
+				
+			case Extra:
+				if(button == CENTER)
+				{
+					state = MainInput;
+				}
+				else if (button == 1 || button ==  2)
+				{
+					state = Extra;
+				}	
 				break;
-			case 4:
+			
+			case ExtraInput:
+				if (counter >= 9)
+				{
+					counter = 0;
+					state = Extra;
+				}
 				break;
+			
 			default:
 				break;
 		}
@@ -383,25 +431,207 @@ int main(void)
 /************************************************************************************/		
 		switch(state)
 		{
-			case startup:
+			case Startup:
 				lengthTop = sprintf(outputTop,"Hello!");
 				lengthBottom = sprintf(outputTop,"M.Yabz-SousVide");
 				updateLCD(lengthTop,lengthBottom,outputTop,outputBottom);
 				break;
-			case 1:
+			
+			case Main:				
 				lengthTop = sprintf(outputTop,"%ih %im %is",hours,minutes,seconds);//output time		
 				lengthBottom = sprintf(outputBottom,"T:%i.%i Set:%i.%i",leftTemp,rightTemp,leftSetTemp,rightSetTemp);//output current temp and set temp	
 				updateLCD(lengthTop,lengthBottom,outputTop,outputBottom);
 				break;
-			case 2:
-				lengthTop = sprintf(outputTop,"%ih %im %is",hours,minutes,seconds);//output time		
-				lengthBottom = sprintf(outputBottom,"T:%i.%i Set:%i.%i",leftTemp,rightTemp,leftSetTemp,rightSetTemp);//output current temp and set temp	
+			
+			case MainInput:
+			if (button != pastButton && button == CENTER)	
+			{
+				counter++;
+			}				
+				switch (counter)
+				{
+					case 0:
+						lengthTop = sprintf(outputTop,"%ch %im %is",255,minutes,seconds);//output time				
+						lengthBottom = sprintf(outputBottom,"T:%i.%i Set:%i.%i",leftTemp,rightTemp,leftSetTemp,rightSetTemp);//output current temp and set temp
+						if (button != pastButton && button == LEFT)
+						{
+							totalSeconds -= 3600; 
+						}
+						else if (button != pastButton && button == RIGHT)
+						{
+							totalSeconds += 3600; 
+						}
+						break;
+						
+					case 1:
+						lengthTop = sprintf(outputTop,"%ih %cm %is",hours,255,seconds);//output time				
+						lengthBottom = sprintf(outputBottom,"T:%i.%i Set:%i.%i",leftTemp,rightTemp,leftSetTemp,rightSetTemp);//output current temp and set temp
+						if (button != pastButton && button == LEFT)
+						{
+							totalSeconds -= 600; 
+						}
+						else if (button != pastButton && button == RIGHT)
+						{
+							totalSeconds += 600; 
+						}
+						break;
+						
+					case 2:
+						lengthTop = sprintf(outputTop,"%ih %cm %is",hours,255,seconds);//output time				
+						lengthBottom = sprintf(outputBottom,"T:%i.%i Set:%i.%i",leftTemp,rightTemp,leftSetTemp,rightSetTemp);//output current temp and set temp
+						if (button != pastButton && button == LEFT)
+						{
+							totalSeconds += 60; 
+						}
+						else if (button != pastButton && button == RIGHT)
+						{
+							totalSeconds -= 60; 
+						}
+						break;
+					
+					case 3:
+						lengthTop = sprintf(outputTop,"%ih %im %cs",hours,minutes,255);//output time				
+						lengthBottom = sprintf(outputBottom,"T:%i.%i Set:%i.%i",leftTemp,rightTemp,leftSetTemp,rightSetTemp);//output current temp and set temp
+						if (button != pastButton && button == LEFT)
+						{
+							totalSeconds -= 10; 
+						}
+						else if (button != pastButton && button == RIGHT)
+						{
+							totalSeconds += 10; 
+						}
+						break;
+					
+					case 4:
+						lengthTop = sprintf(outputTop,"%ih %im %cs",hours,minutes,255);//output time				
+						lengthBottom = sprintf(outputBottom,"T:%i.%i Set:%i.%i",leftTemp,rightTemp,leftSetTemp,rightSetTemp);//output current temp and set temp
+						if (button != pastButton && button == LEFT)
+						{
+							totalSeconds -= 1; 
+						}
+						else if (button != pastButton && button == RIGHT)
+						{
+							totalSeconds += 1; 
+						}
+						break;
+						
+					case 5:
+						lengthTop = sprintf(outputTop,"%ih %im %is",hours,minutes,seconds);//output time				
+						lengthBottom = sprintf(outputBottom,"T:%i.%i Set:%c.%i",leftTemp,rightTemp,255,rightSetTemp);//output current temp and set temp
+						if (button != pastButton && button == LEFT)
+						{
+							setTemp -= 5; 
+						}
+						else if (button != pastButton && button == RIGHT)
+						{
+							setTemp += 5;  
+						}
+						break;
+						
+						case 6:
+						lengthTop = sprintf(outputTop,"%ih %im %is",hours,minutes,seconds);//output time				
+						lengthBottom = sprintf(outputBottom,"T:%i.%i Set:%c.%i",leftTemp,rightTemp,255,rightSetTemp);//output current temp and set temp
+						if (button != pastButton && button == LEFT)
+						{
+							setTemp -= 1; 
+						}
+						else if (button != pastButton && button == RIGHT)
+						{
+							setTemp += 1;  
+						}
+						break;
+					
+					case 7:
+						lengthTop = sprintf(outputTop,"%ih %im %is",hours,minutes,seconds);//output time				
+						lengthBottom = sprintf(outputBottom,"T:%i.%i Set:%i.%c",leftTemp,rightTemp,leftSetTemp,255);//output current temp and set temp
+						if (button != pastButton && button == LEFT)
+						{
+							setTemp -= 0.5; 
+						}
+						else if (button != pastButton && button == RIGHT)
+						{
+							setTemp += 0.5;  
+						}
+						break;		
+
+					case 8:
+						lengthTop = sprintf(outputTop,"%ih %im %is",hours,minutes,seconds);//output time				
+						lengthBottom = sprintf(outputBottom,"T:%i.%i Set:%i.%c",leftTemp,rightTemp,leftSetTemp,255);//output current temp and set temp
+						if (button != pastButton && button == LEFT)
+						{
+							setTemp -= 0.1; 
+						}
+						else if (button != pastButton && button == RIGHT)
+						{
+							setTemp += 0.1;  
+						}
+						break;							
+					
+					default:
+					break;
+				}
+				if (HAL_GetTick() - secondTimestamp > 300)
+				{
+					lengthTop = sprintf(outputTop,"%ih %im %is",hours,minutes,seconds);//output time				
+					lengthBottom = sprintf(outputBottom,"T:%i.%i Set:%i.%i",leftTemp,rightTemp,leftSetTemp,rightSetTemp);//output current temp and set temp
+				}
 				updateLCD(lengthTop,lengthBottom,outputTop,outputBottom);
 				break;
-			case 3:
+			
+			case Extra:
+				lengthTop = sprintf(outputTop,"R1:%i R2:%i R3:%i",relayEnable[0],relayEnable[1],relayEnable[2]);//output time	
+				lengthBottom = sprintf(outputBottom,"R4:%i R5:%i R6:%i ",relayEnable[3],relayEnable[4],relayEnable[5]);//output current temp and set temp	
+				updateLCD(lengthTop,lengthBottom,outputTop,outputBottom);
 				break;
-			case 4:
+			
+			case ExtraInput:
+				if (button != pastButton && button == CENTER)	
+				{
+					counter++;
+				}
+				switch(button)
+				{
+					case 0:
+						lengthTop = sprintf(outputTop,"R1:%c R2:%i R3:%i",255,relayEnable[1],relayEnable[2]);//output time	
+						lengthBottom = sprintf(outputBottom,"R4:%i R5:%i R6:%i ",relayEnable[3],relayEnable[4],relayEnable[5]);//output current temp and set temp					
+					break;
+					
+					case 1:
+						lengthTop = sprintf(outputTop,"R1:%i R2:%c R3:%i",relayEnable[0],255,relayEnable[2]);//output time	
+						lengthBottom = sprintf(outputBottom,"R4:%i R5:%i R6:%i ",relayEnable[3],relayEnable[4],relayEnable[5]);//output current temp and set temp							
+					break;
+					
+					case 2:
+						lengthTop = sprintf(outputTop,"R1:%i R2:%i R3:%c",relayEnable[0],relayEnable[1],255);//output time	
+						lengthBottom = sprintf(outputBottom,"R4:%i R5:%i R6:%i ",relayEnable[3],relayEnable[4],relayEnable[5]);//output current temp and set temp							
+					break;
+					
+					case 3:
+						lengthTop = sprintf(outputTop,"R1:%i R2:%i R3:%i",relayEnable[0],relayEnable[1],relayEnable[2]);//output time	
+						lengthBottom = sprintf(outputBottom,"R4:%c R5:%i R6:%i ",255,relayEnable[4],relayEnable[5]);//output current temp and set temp						
+					break;
+					
+					case 4:
+						lengthTop = sprintf(outputTop,"R1:%i R2:%i R3:%i",relayEnable[0],relayEnable[1],relayEnable[2]);//output time	
+						lengthBottom = sprintf(outputBottom,"R4:%i R5:%c R6:%i ",relayEnable[3],255,relayEnable[5]);//output current temp and set temp							
+					break;
+					
+					case 5:
+						lengthTop = sprintf(outputTop,"R1:%i R2:%i R3:%i",relayEnable[0],relayEnable[1],relayEnable[2]);//output time	
+						lengthBottom = sprintf(outputBottom,"R4:%i R5:%i R6:%c ",relayEnable[3],relayEnable[4],255);//output current temp and set temp							
+					break;
+					
+					default:
+					break;
+				}
+				if (HAL_GetTick() - secondTimestamp > 300)
+				{
+					lengthTop = sprintf(outputTop,"R1:%i R2:%i R3:%i",relayEnable[0],relayEnable[1],relayEnable[2]);//output time	
+					lengthBottom = sprintf(outputBottom,"R4:%i R5:%i R6:%i ",relayEnable[3],relayEnable[4],relayEnable[5]);//output current temp and set temp	
+				}
+				updateLCD(lengthTop,lengthBottom,outputTop,outputBottom);				
 				break;
+			
 			default:
 				break;
 		}
