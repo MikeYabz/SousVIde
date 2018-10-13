@@ -72,6 +72,7 @@ void SystemClock_Config(void);
 /************************************************************************************/
 float getTemp(void)
 {
+	/*
 	#define Resistor 1487 //thermistor is the top part of a resistor divider, this value is the bottom fixed value
 	
 	uint16_t thermistorReading;
@@ -83,6 +84,37 @@ float getTemp(void)
 	double thermistorResistance = (6142500/(double)thermistorReading)-Resistor;
 	double y = 3969/(log(thermistorResistance/(10000*exp(-3969/298.15))))-273.15;
 	return (float)y;
+	*/
+	//R = 10K / (1023/ADC - 1)
+	
+	 	
+	
+	#define TEMPERATURENOMINAL 25	 //ambient temp in kelvin
+	#define BCOEFFICIENT 3969			 //B constant
+	#define THERMISTORNOMINAL 10000		 //resistance at 25c
+	#define RESISTOR 1487 //thermistor is the top part of a resistor divider, this value is the bottom fixed value
+	
+	//get thermistor reading
+	uint16_t thermistorReading;
+	HAL_ADC_Start(&hadc);
+	HAL_ADC_PollForConversion(&hadc,5);
+	thermistorReading = HAL_ADC_GetValue(&hadc);
+	HAL_ADC_Stop(&hadc);
+	
+	//find resistance of thermistor using adc reading.  simple resistor divider, solving for R1 using	  	R2 = 1487	 	Vin = 4096 		Vout = thermistorReading
+	double resistor = ((((double)4095.0)/((double)thermistorReading))-1)* RESISTOR;
+	
+	
+	//solve for temperature using 		1/T = (1/To) + (1/B)*ln(R/Ro)
+	double steinhart;
+  steinhart = resistor / THERMISTORNOMINAL;     // (R/Ro)
+  steinhart = log(steinhart);                  // ln(R/Ro)
+  steinhart /= BCOEFFICIENT;                   // 1/B * ln(R/Ro)
+  steinhart += 1.0 / (TEMPERATURENOMINAL + 273.15); // + (1/To)
+  steinhart = 1.0 / steinhart;                 // Invert
+  steinhart -= 273.15;                         // convert to C	
+	
+	return (float)steinhart;
 }
 
 
@@ -276,11 +308,11 @@ int main(void)
 		HAL_Delay(100);	//short startup delay
 		lcd_init();	//initialize the LCD;
 		
-		uint16_t hours = 0;	//hour component of time, used for easy UI 
-		uint16_t minutes = 0;	//minute component of time, used for easy UI 
-		uint16_t seconds = 0;	//second component of time, used for easy UI 
-		uint32_t totalSeconds = 0;	//total seconds, used internally for all calculations		
-
+		uint16_t hours = 3;	//hour component of time, used for easy UI 
+		uint16_t minutes = 1;	//minute component of time, used for easy UI 
+		uint16_t seconds = 1;	//second component of time, used for easy UI 
+		uint32_t totalSeconds = 300;	//total seconds, used internally for all calculations		
+		
 		char outputTop[40];
 		uint8_t lengthTop;
 		char outputBottom[40];
@@ -297,7 +329,7 @@ int main(void)
 /************************************************************************************/
 		float temp;	//temperature
 		float filteredTemp;	//temperature after LPF
-		float setTemp = 25;	//goal temperature, defaults 25
+		float setTemp = 52.5;	//goal temperature, defaults 25
 		filteredTemp = getTemp(); 	//initialize filtered temp as it uses hysterysis
 /*************************************END********************************************/		
 		
@@ -340,7 +372,7 @@ int main(void)
 		
 		
 		
-		HAL_Delay(1);		
+		HAL_Delay(170);		
 		
 /************************************************************************************/
 //	*		Time Update, Temperature Read and Button press
@@ -356,11 +388,16 @@ int main(void)
 		
 			//Temperature
 		temp = getTemp();  //read Thermistor		
-		filteredTemp = (temp + filteredTemp * 4)/5;	//LPF for more stability in readings	
-		leftTemp = (int) filteredTemp;	//remove anything right of the decimal
-		rightTemp = (int)((filteredTemp - (int) filteredTemp)*10);	//remove whatevers left of the decimal
+		filteredTemp = (temp + filteredTemp * 9)/10;	//LPF for more stability in readings
+
+		
+		//maxing significant figures of readings at 1 by breaking up readings into 'left of the decimal point' and 'right of the decimal point'
+		
+		leftTemp = (int) filteredTemp;	//remove anything right of the decimal by converting to int
+		rightTemp = (int)((filteredTemp - (int) filteredTemp)*10);	//remove whatevers left of the decimal by subtracting (int)filteredTemp then multiplying whats left by 10 which brings the first sig fig to the left of the decimal point, then finally converting to int which leaves only the first sig remaining as an integer
+		
 		leftSetTemp = (int) setTemp;	//remove anything right of the decimal
-		rightSetTemp = (int)((setTemp - (int) setTemp)*10);	//remove whatevers left of the decimal
+		rightSetTemp = (int)((setTemp - (int) setTemp)*10);	//remove whatevers left of the decimal by subtracting (int)filteredTemp then multiplying whats left by 10 which brings the first sig fig to the left of the decimal point, then finally converting to int which leaves only the first sig remaining as an integer
 			
 			//Button Press
 		pastButton = button;
@@ -375,7 +412,7 @@ int main(void)
 		switch(pastState)
 		{
 			case Startup:
-				if (HAL_GetTick() > 2000)	//show for the first 2 seconds or so
+				if (HAL_GetTick() > 3000)	//show for the first 2 seconds or so
 				{
 					state = Main;
 				}
@@ -389,7 +426,11 @@ int main(void)
 				else if (button == 1 || button ==  2)
 				{
 					state = Extra;
-				}				
+				}
+				if (HAL_GetTick() > 6000)	//show for the first 2 seconds or so
+				{
+
+				}
 				break;
 				
 			case MainInput:
@@ -433,7 +474,7 @@ int main(void)
 		{
 			case Startup:
 				lengthTop = sprintf(outputTop,"Hello!");
-				lengthBottom = sprintf(outputTop,"M.Yabz-SousVide");
+				lengthBottom = sprintf(outputBottom,"M.Yabz-SousVide");
 				updateLCD(lengthTop,lengthBottom,outputTop,outputBottom);
 				break;
 			
