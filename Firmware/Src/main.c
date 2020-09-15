@@ -325,6 +325,7 @@ int main(void)
 /************************************************************************************/
 //	*		Init Temp Variables
 /************************************************************************************/
+
 		float temp;	//temperature
 		float filteredTemp;	//temperature after LPF
 		float setTemp = 52.5;	//goal temperature, defaults 25
