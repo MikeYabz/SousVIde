@@ -167,16 +167,16 @@
 <text x="50.927" y="4.826" size="0.889" layer="21" font="vector" rot="R180">SDA</text>
 <text x="54.864" y="4.191" size="0.889" layer="21" font="vector" rot="R90">5V</text>
 <text x="57.023" y="4.064" size="0.889" layer="21" font="vector" rot="R90">GND</text>
-<text x="94.615" y="40.894" size="0.889" layer="21" font="vector" rot="R180">SousVide
+<text x="45.085" y="40.894" size="1.778" layer="22" font="vector" rot="MR180">SousVide
 rev 3
 by M.Yablonovitch
 AUG 2019</text>
 <hole x="71.12" y="59.69" drill="3.5814"/>
 <hole x="25.4" y="59.69" drill="3.5814"/>
 <circle x="25.4" y="59.69" radius="2.83980625" width="2.54" layer="42"/>
-<circle x="71.12" y="59.69" radius="1.905" width="2.54" layer="42"/>
+<circle x="71.12" y="59.69" radius="2.54" width="2.54" layer="42"/>
 <hole x="59.182" y="7.112" drill="3.5814"/>
-<circle x="59.182" y="7.112" radius="1.905" width="2.54" layer="42"/>
+<circle x="59.182" y="7.112" radius="2.159" width="2.54" layer="42"/>
 </plain>
 <libraries>
 <library name="rcl" urn="urn:adsk.eagle:library:334">
@@ -2976,7 +2976,6 @@ Please make sure your boards conform to these design rules.
 <wire x1="50.90021875" y1="7.55421875" x2="50.546" y2="7.2" width="0.3048" layer="1"/>
 <wire x1="50.90021875" y1="8.1816" x2="50.90021875" y2="7.60778125" width="0.3048" layer="1"/>
 <wire x1="50.90021875" y1="7.60778125" x2="51.308" y2="7.2" width="0.3048" layer="1"/>
-<wire x1="41.91" y1="5.5" x2="42.203" y2="5.627" width="0.3048" layer="1"/>
 <wire x1="38.1" y1="3.5814" x2="40.0186" y2="5.5" width="0.3048" layer="1"/>
 <wire x1="40.0186" y1="5.5" x2="41.91" y2="5.5" width="0.3048" layer="1"/>
 <wire x1="42.164" y1="2.032" x2="39.6494" y2="2.032" width="0.3048" layer="1"/>
@@ -3013,9 +3012,9 @@ Please make sure your boards conform to these design rules.
 <wire x1="26.162" y1="21.197" x2="24.6916" y2="19.7266" width="0.3048" layer="1"/>
 <wire x1="24.6916" y1="19.7266" x2="24.6916" y2="14.1704" width="0.3048" layer="1"/>
 <wire x1="61.491309375" y1="12.7" x2="59.69" y2="10.898690625" width="0.4064" layer="1"/>
-<wire x1="63.754" y1="8.382" x2="63.754" y2="2.286" width="0.4064" layer="1"/>
-<wire x1="63.5" y1="2.032" x2="63.754" y2="2.286" width="0.4064" layer="1"/>
-<wire x1="63.754" y1="8.382" x2="61.237309375" y2="10.898690625" width="0.4064" layer="1"/>
+<wire x1="65.024" y1="7.112" x2="65.024" y2="3.556" width="0.4064" layer="1"/>
+<wire x1="63.5" y1="2.032" x2="65.024" y2="3.556" width="0.4064" layer="1"/>
+<wire x1="65.024" y1="7.112" x2="61.237309375" y2="10.898690625" width="0.4064" layer="1"/>
 <wire x1="54.733490625" y1="10.898690625" x2="54.61" y2="11.02218125" width="0.4064" layer="1"/>
 <wire x1="54.733490625" y1="10.898690625" x2="59.69" y2="10.898690625" width="0.4064" layer="1"/>
 <wire x1="54.406090625" y1="11.226090625" x2="54.61" y2="11.02218125" width="0.4064" layer="1"/>
@@ -3060,7 +3059,6 @@ Please make sure your boards conform to these design rules.
 <wire x1="41.402" y1="15.7326875" x2="41.402" y2="19.812" width="0.3048" layer="16"/>
 <wire x1="53.467" y1="6.604" x2="53.467" y2="10.795" width="0.3048" layer="1"/>
 <wire x1="53.467" y1="10.795" x2="52.959" y2="11.303" width="0.3048" layer="1"/>
-<wire x1="52.324" y1="2.032" x2="52.451" y2="2.159" width="0.3048" layer="1"/>
 <wire x1="52.71265625" y1="11.54934375" x2="52.959" y2="11.303" width="0.3048" layer="16"/>
 <wire x1="45.58534375" y1="11.54934375" x2="52.71265625" y2="11.54934375" width="0.3048" layer="16"/>
 <wire x1="52.324" y1="2.032" x2="52.324" y2="5.5" width="0.3048" layer="1"/>
@@ -3861,6 +3859,16 @@ Please make sure your boards conform to these design rules.
 <approved hash="7,39,c275c07ba26d6266"/>
 <approved hash="7,39,71c4598b1f7a4f18"/>
 <approved hash="7,39,c878fe34d0019e60"/>
+<approved hash="5,1,c85a4ecd6a7aacdf"/>
+<approved hash="5,1,7e71a670d3c598ed"/>
+<approved hash="5,1,dc605b4369e0f93a"/>
+<approved hash="5,1,266f62b9b700892f"/>
+<approved hash="5,1,4f8238f6c0f69ba6"/>
+<approved hash="5,1,26dd26537eca7680"/>
+<approved hash="5,1,68d36afbc04b4db1"/>
+<approved hash="5,1,66e020368b7aa3a5"/>
+<approved hash="5,1,091b87b68040ce1f"/>
+<approved hash="5,1,2b667a37f047a9f6"/>
 </errors>
 </board>
 </drawing>

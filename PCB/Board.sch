@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.4.2">
+<eagle version="9.6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -5465,7 +5465,7 @@ Metric Code Size 4564</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="R-US_" urn="urn:adsk.eagle:component:23792/21" prefix="R" uservalue="yes" library_version="10">
+<deviceset name="R-US_" urn="urn:adsk.eagle:component:23792/22" prefix="R" uservalue="yes" library_version="11">
 <description>&lt;B&gt;RESISTOR&lt;/B&gt;, American symbol</description>
 <gates>
 <gate name="G$1" symbol="R-US" x="0" y="0"/>
@@ -5481,6 +5481,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="34" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5495,6 +5496,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="77" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5509,6 +5511,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="85" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5523,6 +5526,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5537,6 +5541,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="19" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5551,6 +5556,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5565,6 +5571,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5579,6 +5586,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5593,6 +5601,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5607,6 +5616,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5621,6 +5631,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5635,6 +5646,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5649,6 +5661,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5663,6 +5676,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="2" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5677,6 +5691,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5691,6 +5706,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5705,6 +5721,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5719,6 +5736,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5733,6 +5751,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5747,6 +5766,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5761,6 +5781,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5775,6 +5796,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5789,6 +5811,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="45" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5803,6 +5826,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="22" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5817,6 +5841,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5831,6 +5856,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5845,6 +5871,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5859,6 +5886,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5873,6 +5901,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5887,6 +5916,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5901,6 +5931,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="18" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5915,6 +5946,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="48" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5929,6 +5961,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="36" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5943,6 +5976,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="3" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5957,6 +5991,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5971,6 +6006,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5985,6 +6021,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -5999,6 +6036,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="22" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6013,6 +6051,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6027,6 +6066,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="8" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6041,6 +6081,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6055,6 +6096,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="2" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6069,6 +6111,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6083,6 +6126,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6097,6 +6141,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6111,6 +6156,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6125,6 +6171,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6139,6 +6186,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6153,6 +6201,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6167,6 +6216,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6181,6 +6231,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6195,6 +6246,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6209,6 +6261,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6223,6 +6276,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6237,6 +6291,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6251,6 +6306,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6265,6 +6321,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6279,6 +6336,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6293,6 +6351,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6307,6 +6366,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6321,6 +6381,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6335,6 +6396,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6349,6 +6411,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6363,6 +6426,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6377,6 +6441,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6391,6 +6456,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6405,6 +6471,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6419,6 +6486,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6433,6 +6501,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6447,6 +6516,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6461,6 +6531,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="3" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6475,6 +6546,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6489,6 +6561,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6503,6 +6576,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6517,6 +6591,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6531,6 +6606,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6545,6 +6621,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6559,6 +6636,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6573,6 +6651,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6587,6 +6666,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6601,6 +6681,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6615,6 +6696,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6629,6 +6711,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6643,6 +6726,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="0" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -6657,6 +6741,7 @@ Metric Code Size 4564</description>
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="POPULARITY" value="1" constant="no"/>
 <attribute name="SPICEPREFIX" value="R" constant="no"/>
 </technology>
 </technologies>
@@ -14654,9 +14739,6 @@ W = angled&lt;p&gt;
 <part name="+3V6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="R5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="1k5"/>
 <part name="THERMISTOR" library="pinhead" library_urn="urn:adsk.eagle:library:325" deviceset="PINHD-1X2" device="" package3d_urn="urn:adsk.eagle:package:22435/2"/>
-<part name="R9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="250"/>
-<part name="R11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="250"/>
-<part name="R12" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="250"/>
 <part name="D1" library="SparkFun-LED" library_urn="urn:adsk.eagle:library:529" deviceset="LED" device="0603" package3d_urn="urn:adsk.eagle:package:39354/1"/>
 <part name="D2" library="SparkFun-LED" library_urn="urn:adsk.eagle:library:529" deviceset="LED" device="0603" package3d_urn="urn:adsk.eagle:package:39354/1"/>
 <part name="R1" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="250"/>
@@ -14671,7 +14753,6 @@ W = angled&lt;p&gt;
 <part name="T1" library="transistor" library_urn="urn:adsk.eagle:library:402" deviceset="*-NPN-" device="SOT23-EBC" package3d_urn="urn:adsk.eagle:package:28750/3"/>
 <part name="R13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="2k"/>
 <part name="U$3" library="SousVide Library" library_urn="urn:adsk.eagle:library:19992058" deviceset="SST04K-800SW" device="" package3d_urn="urn:adsk.eagle:package:19992068/1"/>
-<part name="R15" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="250"/>
 <part name="SUPPLY11" library="SousVide Library" library_urn="urn:adsk.eagle:library:19992058" deviceset="VAC-L" device=""/>
 <part name="SUPPLY8" library="SousVide Library" library_urn="urn:adsk.eagle:library:19992058" deviceset="VAC-N" device=""/>
 <part name="R7" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="10k"/>
@@ -14686,9 +14767,6 @@ W = angled&lt;p&gt;
 <part name="C6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="10u"/>
 <part name="C9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="2.2uF"/>
 <part name="C10" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="1u"/>
-<part name="+3V7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
-<part name="R8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="1k5"/>
-<part name="R14" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="1k5"/>
 <part name="R16" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="1k"/>
 <part name="LED1" library="SparkFun-LED" library_urn="urn:adsk.eagle:library:529" deviceset="LED-YELLOW" device="0603" package3d_urn="urn:adsk.eagle:package:39354/1" value="Yellow"/>
 <part name="J3" library="Wurth_Elektronik_Electromechanic_Wire_to_Board_Connectors_rev19a" library_urn="urn:adsk.eagle:library:7554768" deviceset="66100211622" device="" package3d_urn="urn:adsk.eagle:package:7556166/2"/>
@@ -14700,7 +14778,6 @@ W = angled&lt;p&gt;
 <part name="T2" library="transistor" library_urn="urn:adsk.eagle:library:402" deviceset="*-NPN-" device="SOT23-EBC" package3d_urn="urn:adsk.eagle:package:28750/3"/>
 <part name="R19" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="2k"/>
 <part name="U$4" library="SousVide Library" library_urn="urn:adsk.eagle:library:19992058" deviceset="SST04K-800SW" device="" package3d_urn="urn:adsk.eagle:package:19992068/1"/>
-<part name="R20" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="250"/>
 <part name="SUPPLY15" library="SousVide Library" library_urn="urn:adsk.eagle:library:19992058" deviceset="VAC-L" device=""/>
 <part name="SUPPLY16" library="SousVide Library" library_urn="urn:adsk.eagle:library:19992058" deviceset="VAC-N" device=""/>
 <part name="R21" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="1k"/>
@@ -14713,7 +14790,6 @@ W = angled&lt;p&gt;
 <part name="T3" library="transistor" library_urn="urn:adsk.eagle:library:402" deviceset="*-NPN-" device="SOT23-EBC" package3d_urn="urn:adsk.eagle:package:28750/3"/>
 <part name="R23" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="2k"/>
 <part name="U$5" library="SousVide Library" library_urn="urn:adsk.eagle:library:19992058" deviceset="SST04K-800SW" device="" package3d_urn="urn:adsk.eagle:package:19992068/1"/>
-<part name="R24" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="24k"/>
 <part name="SUPPLY18" library="SousVide Library" library_urn="urn:adsk.eagle:library:19992058" deviceset="VAC-L" device=""/>
 <part name="SUPPLY19" library="SousVide Library" library_urn="urn:adsk.eagle:library:19992058" deviceset="VAC-N" device=""/>
 <part name="R25" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="1k"/>
@@ -14726,7 +14802,6 @@ W = angled&lt;p&gt;
 <part name="T4" library="transistor" library_urn="urn:adsk.eagle:library:402" deviceset="*-NPN-" device="SOT23-EBC" package3d_urn="urn:adsk.eagle:package:28750/3"/>
 <part name="R27" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="2k"/>
 <part name="U$6" library="SousVide Library" library_urn="urn:adsk.eagle:library:19992058" deviceset="SST04K-800SW" device="" package3d_urn="urn:adsk.eagle:package:19992068/1"/>
-<part name="R28" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="250"/>
 <part name="SUPPLY21" library="SousVide Library" library_urn="urn:adsk.eagle:library:19992058" deviceset="VAC-L" device=""/>
 <part name="SUPPLY22" library="SousVide Library" library_urn="urn:adsk.eagle:library:19992058" deviceset="VAC-N" device=""/>
 <part name="R29" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="1k"/>
@@ -14749,7 +14824,6 @@ W = angled&lt;p&gt;
 <part name="C8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="1u"/>
 <part name="R34" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="50k"/>
 <part name="R35" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="50k"/>
-<part name="SUPPLY13" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="PE" device=""/>
 <part name="SUPPLY7" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="PE" device=""/>
 <part name="SUPPLY6" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="PE" device=""/>
 <part name="SUPPLY1" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="PE" device=""/>
@@ -14771,6 +14845,10 @@ W = angled&lt;p&gt;
 <part name="+3V10" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="R36" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="1k"/>
 <part name="R37" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0603" package3d_urn="urn:adsk.eagle:package:23555/3" value="1k"/>
+<part name="R8" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="0613/15" package3d_urn="urn:adsk.eagle:package:23581/2"/>
+<part name="R14" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="0613/15" package3d_urn="urn:adsk.eagle:package:23581/2"/>
+<part name="R15" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="0613/15" package3d_urn="urn:adsk.eagle:package:23581/2"/>
+<part name="R20" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="0613/15" package3d_urn="urn:adsk.eagle:package:23581/2"/>
 </parts>
 <sheets>
 <sheet>
@@ -14869,18 +14947,6 @@ W = angled&lt;p&gt;
 <attribute name="NAME" x="120.65" y="41.275" size="1.778" layer="95"/>
 <attribute name="VALUE" x="120.65" y="30.48" size="1.778" layer="96"/>
 </instance>
-<instance part="R9" gate="G$1" x="-88.9" y="43.18" smashed="yes" rot="R180">
-<attribute name="NAME" x="-85.09" y="41.6814" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="-85.09" y="46.482" size="1.778" layer="96" rot="R180"/>
-</instance>
-<instance part="R11" gate="G$1" x="-88.9" y="27.94" smashed="yes" rot="R180">
-<attribute name="NAME" x="-85.09" y="26.4414" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="-85.09" y="31.242" size="1.778" layer="96" rot="R180"/>
-</instance>
-<instance part="R12" gate="G$1" x="-88.9" y="20.32" smashed="yes" rot="R180">
-<attribute name="NAME" x="-85.09" y="18.8214" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="-85.09" y="23.622" size="1.778" layer="96" rot="R180"/>
-</instance>
 <instance part="D1" gate="G$1" x="-33.02" y="40.64" smashed="yes">
 <attribute name="NAME" x="-36.449" y="36.068" size="1.778" layer="95" font="vector" rot="R90"/>
 <attribute name="VALUE" x="-31.115" y="36.068" size="1.778" layer="96" font="vector" rot="R90" align="top-left"/>
@@ -14930,10 +14996,6 @@ W = angled&lt;p&gt;
 <instance part="U$3" gate="G$1" x="132.08" y="-33.02" smashed="yes">
 <attribute name="NAME" x="135.89" y="-30.48" size="1.778" layer="95"/>
 <attribute name="VALUE" x="135.89" y="-33.02" size="1.778" layer="96"/>
-</instance>
-<instance part="R15" gate="G$1" x="119.38" y="-33.02" smashed="yes" rot="R180">
-<attribute name="NAME" x="123.19" y="-34.5186" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="123.19" y="-29.718" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="SUPPLY11" gate="1" x="132.08" y="0" smashed="yes">
 <attribute name="VALUE" x="130.81" y="1.27" size="1.778" layer="96"/>
@@ -14985,17 +15047,6 @@ W = angled&lt;p&gt;
 <attribute name="NAME" x="11.176" y="84.455" size="1.778" layer="95"/>
 <attribute name="VALUE" x="11.176" y="79.629" size="1.778" layer="96"/>
 </instance>
-<instance part="+3V7" gate="G$1" x="142.24" y="58.42" smashed="yes">
-<attribute name="VALUE" x="139.7" y="53.34" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="R8" gate="G$1" x="142.24" y="25.4" smashed="yes" rot="R270">
-<attribute name="NAME" x="143.7386" y="24.13" size="1.778" layer="95" rot="R270"/>
-<attribute name="VALUE" x="138.938" y="24.13" size="1.778" layer="96" rot="R270"/>
-</instance>
-<instance part="R14" gate="G$1" x="142.24" y="45.72" smashed="yes" rot="R270">
-<attribute name="NAME" x="143.7386" y="44.45" size="1.778" layer="95" rot="R270"/>
-<attribute name="VALUE" x="138.938" y="44.45" size="1.778" layer="96" rot="R270"/>
-</instance>
 <instance part="R16" gate="G$1" x="73.66" y="-15.24" smashed="yes" rot="R270">
 <attribute name="NAME" x="75.1586" y="-11.43" size="1.778" layer="95" rot="R270"/>
 <attribute name="VALUE" x="70.358" y="-11.43" size="1.778" layer="96" rot="R270"/>
@@ -15035,10 +15086,6 @@ W = angled&lt;p&gt;
 <instance part="U$4" gate="G$1" x="-12.7" y="-33.02" smashed="yes">
 <attribute name="NAME" x="-8.89" y="-30.48" size="1.778" layer="95"/>
 <attribute name="VALUE" x="-8.89" y="-33.02" size="1.778" layer="96"/>
-</instance>
-<instance part="R20" gate="G$1" x="-25.4" y="-33.02" smashed="yes" rot="R180">
-<attribute name="NAME" x="-21.59" y="-34.5186" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="-21.59" y="-29.718" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="SUPPLY15" gate="1" x="-12.7" y="0" smashed="yes">
 <attribute name="VALUE" x="-13.97" y="1.27" size="1.778" layer="96"/>
@@ -15082,10 +15129,6 @@ W = angled&lt;p&gt;
 <attribute name="NAME" x="135.89" y="-99.06" size="1.778" layer="95"/>
 <attribute name="VALUE" x="135.89" y="-101.6" size="1.778" layer="96"/>
 </instance>
-<instance part="R24" gate="G$1" x="119.38" y="-101.6" smashed="yes" rot="R180">
-<attribute name="NAME" x="123.19" y="-103.0986" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="123.19" y="-98.298" size="1.778" layer="96" rot="R180"/>
-</instance>
 <instance part="SUPPLY18" gate="1" x="132.08" y="-68.58" smashed="yes">
 <attribute name="VALUE" x="130.81" y="-67.31" size="1.778" layer="96"/>
 </instance>
@@ -15127,10 +15170,6 @@ W = angled&lt;p&gt;
 <instance part="U$6" gate="G$1" x="-12.7" y="-101.6" smashed="yes">
 <attribute name="NAME" x="-8.89" y="-99.06" size="1.778" layer="95"/>
 <attribute name="VALUE" x="-8.89" y="-101.6" size="1.778" layer="96"/>
-</instance>
-<instance part="R28" gate="G$1" x="-25.4" y="-101.6" smashed="yes" rot="R180">
-<attribute name="NAME" x="-21.59" y="-103.0986" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="-21.59" y="-98.298" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="SUPPLY21" gate="1" x="-12.7" y="-68.58" smashed="yes">
 <attribute name="VALUE" x="-13.97" y="-67.31" size="1.778" layer="96"/>
@@ -15211,7 +15250,6 @@ W = angled&lt;p&gt;
 <attribute name="NAME" x="-254" y="34.5186" size="1.778" layer="95"/>
 <attribute name="VALUE" x="-250.19" y="34.798" size="1.778" layer="96"/>
 </instance>
-<instance part="SUPPLY13" gate="PE" x="142.24" y="15.24" smashed="yes"/>
 <instance part="SUPPLY7" gate="PE" x="116.84" y="15.24" smashed="yes"/>
 <instance part="SUPPLY6" gate="PE" x="63.5" y="17.78" smashed="yes"/>
 <instance part="SUPPLY1" gate="PE" x="38.1" y="73.66" smashed="yes"/>
@@ -15254,6 +15292,22 @@ W = angled&lt;p&gt;
 <instance part="R37" gate="G$1" x="-165.1" y="-38.1" smashed="yes" rot="R270">
 <attribute name="NAME" x="-163.6014" y="-34.29" size="1.778" layer="95" rot="R270"/>
 <attribute name="VALUE" x="-168.402" y="-34.29" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="R8" gate="G$1" x="-25.4" y="-33.02" smashed="yes">
+<attribute name="NAME" x="-29.21" y="-31.5214" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-29.21" y="-36.322" size="1.778" layer="96"/>
+</instance>
+<instance part="R14" gate="G$1" x="-25.4" y="-101.6" smashed="yes">
+<attribute name="NAME" x="-29.21" y="-100.1014" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-29.21" y="-104.902" size="1.778" layer="96"/>
+</instance>
+<instance part="R15" gate="G$1" x="119.38" y="-101.6" smashed="yes">
+<attribute name="NAME" x="115.57" y="-100.1014" size="1.778" layer="95"/>
+<attribute name="VALUE" x="115.57" y="-104.902" size="1.778" layer="96"/>
+</instance>
+<instance part="R20" gate="G$1" x="119.38" y="-33.02" smashed="yes">
+<attribute name="NAME" x="115.57" y="-31.5214" size="1.778" layer="95"/>
+<attribute name="VALUE" x="115.57" y="-36.322" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -15399,11 +15453,6 @@ W = angled&lt;p&gt;
 <wire x1="-33.02" y1="45.72" x2="-33.02" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="+3V7" gate="G$1" pin="+3V3"/>
-<wire x1="142.24" y1="55.88" x2="142.24" y2="50.8" width="0.1524" layer="91"/>
-<pinref part="R14" gate="G$1" pin="1"/>
-</segment>
-<segment>
 <pinref part="R31" gate="G$1" pin="1"/>
 <wire x1="-147.32" y1="76.2" x2="-147.32" y2="80.01" width="0.1524" layer="91"/>
 <pinref part="+3V8" gate="G$1" pin="+3V3"/>
@@ -15513,37 +15562,13 @@ W = angled&lt;p&gt;
 <label x="-170.18" y="-10.16" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="N$19" class="0">
-<segment>
-<wire x1="-101.6" y1="35.56" x2="-96.52" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="-96.52" y1="35.56" x2="-96.52" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="R9" gate="G$1" pin="2"/>
-<wire x1="-96.52" y1="43.18" x2="-93.98" y2="43.18" width="0.1524" layer="91"/>
-<pinref part="J1" gate="G$1" pin="4"/>
-</segment>
-</net>
-<net name="N$22" class="0">
-<segment>
-<wire x1="-101.6" y1="27.94" x2="-96.52" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="-96.52" y1="27.94" x2="-96.52" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="R12" gate="G$1" pin="2"/>
-<wire x1="-96.52" y1="20.32" x2="-93.98" y2="20.32" width="0.1524" layer="91"/>
-<pinref part="J1" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="N$21" class="0">
-<segment>
-<pinref part="R11" gate="G$1" pin="2"/>
-<wire x1="-101.6" y1="30.48" x2="-93.98" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="-93.98" y1="30.48" x2="-93.98" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="J1" gate="G$1" pin="2"/>
-</segment>
-</net>
 <net name="SWCLK" class="0">
 <segment>
-<pinref part="R9" gate="G$1" pin="1"/>
-<wire x1="-83.82" y1="43.18" x2="-81.28" y2="43.18" width="0.1524" layer="91"/>
 <label x="-81.28" y="43.18" size="1.27" layer="95" xref="yes"/>
+<wire x1="-101.6" y1="35.56" x2="-96.52" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="-96.52" y1="35.56" x2="-96.52" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="4"/>
+<wire x1="-96.52" y1="43.18" x2="-81.28" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="STM32F070F6" gate="G$1" pin="PA14"/>
@@ -15553,9 +15578,11 @@ W = angled&lt;p&gt;
 </net>
 <net name="SWDIO" class="0">
 <segment>
-<pinref part="R11" gate="G$1" pin="1"/>
-<wire x1="-83.82" y1="27.94" x2="-81.28" y2="27.94" width="0.1524" layer="91"/>
 <label x="-81.28" y="27.94" size="1.27" layer="95" xref="yes"/>
+<wire x1="-101.6" y1="30.48" x2="-93.98" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="-93.98" y1="30.48" x2="-93.98" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="2"/>
+<wire x1="-93.98" y1="27.94" x2="-81.28" y2="27.94" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="STM32F070F6" gate="G$1" pin="PA13"/>
@@ -15565,9 +15592,11 @@ W = angled&lt;p&gt;
 </net>
 <net name="NRST" class="0">
 <segment>
-<pinref part="R12" gate="G$1" pin="1"/>
-<wire x1="-83.82" y1="20.32" x2="-81.28" y2="20.32" width="0.1524" layer="91"/>
 <label x="-81.28" y="20.32" size="1.27" layer="95" xref="yes"/>
+<wire x1="-101.6" y1="27.94" x2="-96.52" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="-96.52" y1="27.94" x2="-96.52" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="1"/>
+<wire x1="-96.52" y1="20.32" x2="-81.28" y2="20.32" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="STM32F070F6" gate="G$1" pin="NRST"/>
@@ -15638,11 +15667,6 @@ W = angled&lt;p&gt;
 <wire x1="-152.4" y1="48.26" x2="-152.4" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="-152.4" y1="43.18" x2="-158.75" y2="43.18" width="0.1524" layer="91"/>
 <junction x="-158.75" y="43.18"/>
-</segment>
-<segment>
-<wire x1="142.24" y1="20.32" x2="142.24" y2="17.78" width="0.1524" layer="91"/>
-<pinref part="R8" gate="G$1" pin="2"/>
-<pinref part="SUPPLY13" gate="PE" pin="PE"/>
 </segment>
 <segment>
 <pinref part="R5" gate="G$1" pin="2"/>
@@ -15852,15 +15876,15 @@ W = angled&lt;p&gt;
 <net name="N$7" class="0">
 <segment>
 <pinref part="OK1" gate="-1" pin="A1"/>
-<pinref part="R15" gate="G$1" pin="2"/>
 <wire x1="114.3" y1="-33.02" x2="111.76" y2="-33.02" width="0.1524" layer="91"/>
+<pinref part="R20" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$9" class="0">
 <segment>
 <pinref part="U$3" gate="G$1" pin="G"/>
-<pinref part="R15" gate="G$1" pin="1"/>
 <wire x1="127" y1="-33.02" x2="124.46" y2="-33.02" width="0.1524" layer="91"/>
+<pinref part="R20" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="V-" class="0">
@@ -15923,22 +15947,6 @@ W = angled&lt;p&gt;
 <junction x="-78.74" y="83.82"/>
 </segment>
 </net>
-<net name="THERM-CALIBRATE" class="0">
-<segment>
-<wire x1="142.24" y1="40.64" x2="142.24" y2="35.56" width="0.1524" layer="91"/>
-<pinref part="R8" gate="G$1" pin="1"/>
-<pinref part="R14" gate="G$1" pin="2"/>
-<wire x1="142.24" y1="35.56" x2="142.24" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="35.56" x2="147.32" y2="35.56" width="0.1524" layer="91"/>
-<junction x="142.24" y="35.56"/>
-<label x="147.32" y="35.56" size="1.27" layer="95" xref="yes"/>
-</segment>
-<segment>
-<pinref part="STM32F070F6" gate="G$1" pin="PA7"/>
-<wire x1="-15.24" y1="76.2" x2="-12.7" y2="76.2" width="0.1524" layer="91"/>
-<label x="-12.7" y="76.2" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
 <net name="N$10" class="0">
 <segment>
 <pinref part="LED1" gate="G$1" pin="A"/>
@@ -15985,15 +15993,15 @@ W = angled&lt;p&gt;
 <net name="N$13" class="0">
 <segment>
 <pinref part="OK2" gate="-1" pin="A1"/>
-<pinref part="R20" gate="G$1" pin="2"/>
 <wire x1="-30.48" y1="-33.02" x2="-33.02" y2="-33.02" width="0.1524" layer="91"/>
+<pinref part="R8" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$14" class="0">
 <segment>
 <pinref part="U$4" gate="G$1" pin="G"/>
-<pinref part="R20" gate="G$1" pin="1"/>
 <wire x1="-17.78" y1="-33.02" x2="-20.32" y2="-33.02" width="0.1524" layer="91"/>
+<pinref part="R8" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$15" class="0">
@@ -16042,15 +16050,15 @@ W = angled&lt;p&gt;
 <net name="N$20" class="0">
 <segment>
 <pinref part="OK3" gate="-1" pin="A1"/>
-<pinref part="R24" gate="G$1" pin="2"/>
 <wire x1="114.3" y1="-101.6" x2="111.76" y2="-101.6" width="0.1524" layer="91"/>
+<pinref part="R15" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$23" class="0">
 <segment>
 <pinref part="U$5" gate="G$1" pin="G"/>
-<pinref part="R24" gate="G$1" pin="1"/>
 <wire x1="127" y1="-101.6" x2="124.46" y2="-101.6" width="0.1524" layer="91"/>
+<pinref part="R15" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$24" class="0">
@@ -16099,15 +16107,15 @@ W = angled&lt;p&gt;
 <net name="N$28" class="0">
 <segment>
 <pinref part="OK4" gate="-1" pin="A1"/>
-<pinref part="R28" gate="G$1" pin="2"/>
 <wire x1="-30.48" y1="-101.6" x2="-33.02" y2="-101.6" width="0.1524" layer="91"/>
+<pinref part="R14" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$29" class="0">
 <segment>
 <pinref part="U$6" gate="G$1" pin="G"/>
-<pinref part="R28" gate="G$1" pin="1"/>
 <wire x1="-17.78" y1="-101.6" x2="-20.32" y2="-101.6" width="0.1524" layer="91"/>
+<pinref part="R14" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$30" class="0">
@@ -16191,6 +16199,11 @@ W = angled&lt;p&gt;
 <junction x="-147.32" y="63.5"/>
 <pinref part="R31" gate="G$1" pin="2"/>
 </segment>
+<segment>
+<pinref part="STM32F070F6" gate="G$1" pin="PA4"/>
+<wire x1="-45.72" y1="71.12" x2="-48.26" y2="71.12" width="0.1524" layer="91"/>
+<label x="-48.26" y="71.12" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="N$36" class="0">
 <segment>
@@ -16227,11 +16240,6 @@ W = angled&lt;p&gt;
 </net>
 <net name="ENCODER_B" class="0">
 <segment>
-<pinref part="STM32F070F6" gate="G$1" pin="PA5"/>
-<wire x1="-15.24" y1="71.12" x2="-12.7" y2="71.12" width="0.1524" layer="91"/>
-<label x="-12.7" y="71.12" size="1.27" layer="95" xref="yes"/>
-</segment>
-<segment>
 <pinref part="SV1" gate="G$1" pin="4"/>
 <label x="-162.56" y="-50.8" size="1.27" layer="95" xref="yes"/>
 <wire x1="-172.72" y1="-50.8" x2="-165.1" y2="-50.8" width="0.1524" layer="91"/>
@@ -16240,13 +16248,13 @@ W = angled&lt;p&gt;
 <junction x="-165.1" y="-50.8"/>
 <pinref part="R37" gate="G$1" pin="2"/>
 </segment>
-</net>
-<net name="ENCODER_A" class="0">
 <segment>
 <pinref part="STM32F070F6" gate="G$1" pin="PA6"/>
 <wire x1="-15.24" y1="73.66" x2="-12.7" y2="73.66" width="0.1524" layer="91"/>
 <label x="-12.7" y="73.66" size="1.27" layer="95" xref="yes"/>
 </segment>
+</net>
+<net name="ENCODER_A" class="0">
 <segment>
 <pinref part="SV1" gate="G$1" pin="5"/>
 <wire x1="-162.56" y1="-48.26" x2="-170.18" y2="-48.26" width="0.1524" layer="91"/>
@@ -16256,17 +16264,22 @@ W = angled&lt;p&gt;
 <wire x1="-170.18" y1="-43.18" x2="-170.18" y2="-48.26" width="0.1524" layer="91"/>
 <junction x="-170.18" y="-48.26"/>
 </segment>
+<segment>
+<pinref part="STM32F070F6" gate="G$1" pin="PA5"/>
+<wire x1="-15.24" y1="71.12" x2="-12.7" y2="71.12" width="0.1524" layer="91"/>
+<label x="-12.7" y="71.12" size="1.27" layer="95" xref="yes"/>
+</segment>
 </net>
 <net name="ENCODER_BUTTON" class="0">
-<segment>
-<pinref part="STM32F070F6" gate="G$1" pin="PA4"/>
-<wire x1="-45.72" y1="71.12" x2="-48.26" y2="71.12" width="0.1524" layer="91"/>
-<label x="-48.26" y="71.12" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
 <segment>
 <wire x1="-172.72" y1="-53.34" x2="-162.56" y2="-53.34" width="0.1524" layer="91"/>
 <label x="-162.56" y="-53.34" size="1.27" layer="95" xref="yes"/>
 <pinref part="SV1" gate="G$1" pin="3"/>
+</segment>
+<segment>
+<pinref part="STM32F070F6" gate="G$1" pin="PA7"/>
+<wire x1="-15.24" y1="76.2" x2="-12.7" y2="76.2" width="0.1524" layer="91"/>
+<label x="-12.7" y="76.2" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="N$43" class="0">

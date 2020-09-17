@@ -108,12 +108,19 @@ int main(void)
 		
 		if(HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_7) == 0)
 		{
+			/*
 			HAL_Delay(4);
 			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,GPIO_PIN_SET);
 			//HAL_Delay(1);
 			while(HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_7) == 1){}
 			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,GPIO_PIN_RESET);
-			/*
+			*/
+			HAL_Delay(4);
+			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,GPIO_PIN_SET);
+			HAL_Delay(1);
+			HAL_GPIO_WritePin(GPIOA,GPIO_PIN_3,GPIO_PIN_RESET);
+				
+				/*
 			for(uint8_t i=0;i<20;i++)
 			{
 				bufferTimestamps[i] = bufferTimestamps[i+1];
